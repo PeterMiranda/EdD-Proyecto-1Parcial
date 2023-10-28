@@ -203,5 +203,25 @@ public class LinkedList<E> implements java.util.List<E> {
     public List<E> subList(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+    public Iterator<E> iterator() {
+        
+        Iterator<E> it = new Iterator<E>() {
+            Node<E> cursor = first;
+            @Override
+            public boolean hasNext() {
+                return cursor != null;
+            }
+
+            @Override
+            public E next() {
+                E e = cursor.getContent();
+                cursor = cursor.getNext().getNext();
+                return e;
+            }
+        };
+        
+        return it;
+        
+        
+    }
 }
