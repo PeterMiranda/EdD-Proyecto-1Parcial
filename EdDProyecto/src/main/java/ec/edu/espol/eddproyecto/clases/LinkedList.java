@@ -1,41 +1,52 @@
-package ec.edu.espol.eddproyecto.clases;
+package ec.edu.espol.linkedlist;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-
 public class LinkedList<E> implements List<E>{
-    public static void main(String[] args) {
-        LinkedList<Integer> miLinkedList1 = new LinkedList<>();
 
-        miLinkedList1.add(1);
-        miLinkedList1.add(2);
-        //miLinkedList1.add(3);
-        //miLinkedList1.add(4);
-        //miLinkedList1.add(5);
+    public static void main(String[] args) {
+        LinkedList<Persona> miLinkedList1 = new LinkedList<>();
+        
+        Persona persona1 = new Persona("Peter","Miranda","1");
+        miLinkedList1.add(persona1);
+        miLinkedList1.add(new Persona("g","g","2"));
+        miLinkedList1.add(new Persona("g","g","3"));
+        miLinkedList1.add(new Persona("g","g","4"));
+        miLinkedList1.add(new Persona("g","g","5"));
+        miLinkedList1.add(new Persona("g","g","7"));
+        miLinkedList1.add(new Persona("Jorge","Herrera","8"));
+        miLinkedList1.add(new Persona("g","g","9"));
+        miLinkedList1.add(new Persona("g","g","10"));
         
         System.out.println(miLinkedList1.toString());
         //System.out.println(miLinkedList1.getLast());
         
         //miLinkedList1.add(0,1000);
         //miLinkedList2.add(0,2000);
-
         miLinkedList1.toString();
+        
+        Comparator<Persona> comparadorNombre = new comparatorPersona();
+        
+        Persona personabuscada = new Persona("Jorge", "Herrera","8");
+        System.out.println(miLinkedList1.find(comparadorNombre, personabuscada));
+        
         
         //listaVacia.add(0,200);
         
         //System.out.println(listaVacia.toString());
-
-        //System.out.println(miLinkedList2.size());
         
-        //System.out.println(miLinkedList1.joinList(miLinkedList2));
-        //System.out.println(miLinkedList1.joinList(listaVacia));
-        //System.out.println(listaVacia.joinList(miLinkedList2));
-        //System.out.println(listaVacia.joinList(listaVacia));
-        for(int entero :miLinkedList1){
-            System.out.println(entero);}
+        /*
+        System.out.println(miLinkedList2.size());
+        
+        System.out.println(miLinkedList1.joinList(miLinkedList2));
+        System.out.println(miLinkedList1.joinList(listaVacia));
+        System.out.println(listaVacia.joinList(miLinkedList2));
+        System.out.println(listaVacia.joinList(listaVacia));
+        */
         
     }
     
@@ -89,16 +100,10 @@ public class LinkedList<E> implements List<E>{
     @Override
     public Iterator<E> iterator() {
         Iterator<E> it = new Iterator<E>() {
-            Node<E> cursor = null;
+            Node<E> cursor = first;
             @Override
             public boolean hasNext() {
-                if (first == null)
-                    return false;
-                if (cursor == null){
-                    cursor = first;
-                    return true;
-                }
-                return cursor != first;
+                return cursor != last;
             }
             @Override
             public E next() {
@@ -107,7 +112,7 @@ public class LinkedList<E> implements List<E>{
                 return e;
             }
         };
-        return it; 
+        return it;
     }
 
     @Override
@@ -133,7 +138,6 @@ public class LinkedList<E> implements List<E>{
         }
         this.last.next = this.first;
         this.first.previus = this.last;
-
         this.size++;
         return true;
     }
@@ -142,7 +146,6 @@ public class LinkedList<E> implements List<E>{
     public String toString(){
         Node<E> it = this.first;
         String str = "";
-        System.out.println(this.last);
         while(it!=this.last){
             str += (it.content.toString()+" ");
             it = it.next;
@@ -207,7 +210,6 @@ public class LinkedList<E> implements List<E>{
             }
 
         }
-
         linkedListReverse.last.next = this.first;
         linkedListReverse.first.previus = this.last;
         linkedListReverse.size = this.size;
@@ -384,6 +386,16 @@ public class LinkedList<E> implements List<E>{
     public ListIterator<E> listIterator(int index) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-
-        
+    
+    
+    public E find(Comparator<E> comparator, E elementoBuscado){
+        for (E current : this) {
+            if (comparator.compare(current,elementoBuscado) == 0) {
+                return current;
+            }
+        }
+        return null; 
+    }
+    
 }
+
