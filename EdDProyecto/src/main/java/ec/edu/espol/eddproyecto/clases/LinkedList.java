@@ -9,18 +9,19 @@ import java.util.ListIterator;
 public class LinkedList<E> implements List<E>{
 
     public static void main(String[] args) {
-        LinkedList<Persona> miLinkedList1 = new LinkedList<>();
+        LinkedList<Person> miLinkedList1 = new LinkedList<>();
         
-        Persona persona1 = new Persona("Peter","Miranda","1");
+        Person persona1 = new Person("Peter","Miranda","1");
         miLinkedList1.add(persona1);
-        miLinkedList1.add(new Persona("g","g","2"));
-        miLinkedList1.add(new Persona("g","g","3"));
-        miLinkedList1.add(new Persona("g","g","4"));
-        miLinkedList1.add(new Persona("g","g","5"));
-        miLinkedList1.add(new Persona("g","g","7"));
-        miLinkedList1.add(new Persona("Jorge","Herrera","8"));
-        miLinkedList1.add(new Persona("g","g","9"));
-        miLinkedList1.add(new Persona("g","g","10"));
+        miLinkedList1.add(new Person("g","g","2"));
+        miLinkedList1.add(new Person("g","g","3"));
+        miLinkedList1.add(new Person("g","g","4"));
+                miLinkedList1.add(new Person("Jorge","Herrera","20"));
+        miLinkedList1.add(new Person("g","g","5"));
+        miLinkedList1.add(new Person("g","g","7"));
+        miLinkedList1.add(new Person("Jorge","Herrera","8"));
+        miLinkedList1.add(new Person("g","g","9"));
+        miLinkedList1.add(new Person("g","g","10"));
         
         System.out.println(miLinkedList1.toString());
         //System.out.println(miLinkedList1.getLast());
@@ -29,9 +30,9 @@ public class LinkedList<E> implements List<E>{
         //miLinkedList2.add(0,2000);
         miLinkedList1.toString();
         
-        Comparator<Persona> comparadorNombre = new comparatorPersona();
+        Comparator<Person> comparadorNombre = new comparatorPerson();
         
-        Persona personabuscada = new Persona("Jorge", "Herrera","8");
+        Person personabuscada = new Person("Jorge", "Herrera","8");
         System.out.println(miLinkedList1.find(comparadorNombre, personabuscada));
         
         
