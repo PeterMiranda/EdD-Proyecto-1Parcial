@@ -20,7 +20,7 @@ public class LinkedList<E> implements List<E>{
         miLinkedList1.add(new Person("Javier","Tibau","5"));
         miLinkedList1.add(new Person("Stephanie","Borbor","7"));
         miLinkedList1.add(new Person("Jorge","Herrera","8"));
-        miLinkedList1.add(new Person("Jose","","9"));
+        miLinkedList1.add(new Person("Jose","Cabrera","9"));
         miLinkedList1.add(new Person("Peter","Griffin","10"));
         
         System.out.println(miLinkedList1.toString());
@@ -387,6 +387,15 @@ public class LinkedList<E> implements List<E>{
             }
         }
         return null; 
+    }
+    public LinkedList<E> findAll(Comparator<E> comparator, E elementoBuscado){
+        LinkedList<E> listAll = new LinkedList<>();
+        for (E current : this) {
+            if (comparator.compare(current,elementoBuscado) == 0) {
+                listAll.add(current);
+            }
+        }
+        return listAll; 
     }
     
 }
