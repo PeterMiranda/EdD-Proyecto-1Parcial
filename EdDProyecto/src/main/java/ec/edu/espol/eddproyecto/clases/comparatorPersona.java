@@ -1,4 +1,4 @@
-package ec.edu.espol.linkedlist;
+package ec.edu.espol.eddproyecto.clases;
 import java.util.Comparator;
 
 public class comparatorPersona implements Comparator<Persona>{

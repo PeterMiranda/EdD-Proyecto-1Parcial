@@ -1,4 +1,4 @@
-package ec.edu.espol.linkedlist;
+package ec.edu.espol.eddproyecto.clases;
 
 import java.util.Collection;
 import java.util.Comparator;
