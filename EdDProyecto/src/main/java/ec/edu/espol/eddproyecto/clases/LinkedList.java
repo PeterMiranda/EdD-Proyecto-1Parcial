@@ -39,7 +39,10 @@ public class LinkedList<E> implements List<E>{
         Person personabuscada3 = new Person("Juan", "Herrera","404");
         Comparator<Person> comparadorApellido = new comparatorLastname();
         System.out.println(miLinkedList1.find(comparadorApellido, personabuscada3));
-       
+        
+        //PUNTOS EXTRA (50% más): FindAll retorna lista con todos los objetos que pasan el filtro del comparador.
+        Person personabuscada4 = new Person("N/A", "Herrera","09999999999");   
+        System.out.println(miLinkedList1.findAll(comparadorApellido, personabuscada4));
     }
     
     Node<E> first;
