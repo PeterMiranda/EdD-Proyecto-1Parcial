@@ -13,42 +13,33 @@ public class LinkedList<E> implements List<E>{
         
         Person persona1 = new Person("Peter","Miranda","1");
         miLinkedList1.add(persona1);
-        miLinkedList1.add(new Person("g","g","2"));
-        miLinkedList1.add(new Person("g","g","3"));
-        miLinkedList1.add(new Person("g","g","4"));
-                miLinkedList1.add(new Person("Jorge","Herrera","20"));
-        miLinkedList1.add(new Person("g","g","5"));
-        miLinkedList1.add(new Person("g","g","7"));
+        miLinkedList1.add(new Person("Paul","Pluas","2"));
+        miLinkedList1.add(new Person("Manuel","Calabera","3"));
+        miLinkedList1.add(new Person("Cristhian","Herrera","4"));
+        miLinkedList1.add(new Person("Jorge","Herrera","20"));
+        miLinkedList1.add(new Person("Javier","Tibau","5"));
+        miLinkedList1.add(new Person("Stephanie","Borbor","7"));
         miLinkedList1.add(new Person("Jorge","Herrera","8"));
-        miLinkedList1.add(new Person("g","g","9"));
-        miLinkedList1.add(new Person("g","g","10"));
+        miLinkedList1.add(new Person("Jose","","9"));
+        miLinkedList1.add(new Person("Peter","Griffin","10"));
         
         System.out.println(miLinkedList1.toString());
-        //System.out.println(miLinkedList1.getLast());
         
-        //miLinkedList1.add(0,1000);
-        //miLinkedList2.add(0,2000);
-        miLinkedList1.toString();
+        Comparator<Person> comparadorPersona = new comparatorPerson();
         
-        Comparator<Person> comparadorNombre = new comparatorPerson();
+        //Find retorna la persona EXACTA
+        Person personabuscada1 = new Person("Jorge", "Herrera","8");
+        System.out.println(miLinkedList1.find(comparadorPersona, personabuscada1));
         
-        Person personabuscada = new Person("Jorge", "Herrera","8");
-        System.out.println(miLinkedList1.find(comparadorNombre, personabuscada));
+        //Find 2 basados en filtros de su elección
+        Person personabuscada2 = new Person("Peter", "Quill","15");
+        Comparator<Person> comparadorNombre = new comparatorName();
+        System.out.println(miLinkedList1.find(comparadorNombre, personabuscada2));
         
-        
-        //listaVacia.add(0,200);
-        
-        //System.out.println(listaVacia.toString());
-        
-        /*
-        System.out.println(miLinkedList2.size());
-        
-        System.out.println(miLinkedList1.joinList(miLinkedList2));
-        System.out.println(miLinkedList1.joinList(listaVacia));
-        System.out.println(listaVacia.joinList(miLinkedList2));
-        System.out.println(listaVacia.joinList(listaVacia));
-        */
-        
+        Person personabuscada3 = new Person("Juan", "Herrera","404");
+        Comparator<Person> comparadorApellido = new comparatorLastname();
+        System.out.println(miLinkedList1.find(comparadorApellido, personabuscada3));
+       
     }
     
     Node<E> first;
