@@ -5,8 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class LinkedList<E> implements java.util.List<E> {
-        public static void main(String[] args) {
+
+public class LinkedList<E> implements List<E>{
+    public static void main(String[] args) {
         LinkedList<Integer> miLinkedList1 = new LinkedList<>();
 
         miLinkedList1.add(1);
@@ -20,20 +21,20 @@ public class LinkedList<E> implements java.util.List<E> {
         
         //miLinkedList1.add(0,1000);
         //miLinkedList2.add(0,2000);
-        System.out.println(miLinkedList1.toString());
+
+        miLinkedList1.toString();
         
         //listaVacia.add(0,200);
         
         //System.out.println(listaVacia.toString());
+
+        //System.out.println(miLinkedList2.size());
         
-        /*
-        System.out.println(miLinkedList2.size());
+        //System.out.println(miLinkedList1.joinList(miLinkedList2));
+        //System.out.println(miLinkedList1.joinList(listaVacia));
+        //System.out.println(listaVacia.joinList(miLinkedList2));
+        //System.out.println(listaVacia.joinList(listaVacia));
         
-        System.out.println(miLinkedList1.joinList(miLinkedList2));
-        System.out.println(miLinkedList1.joinList(listaVacia));
-        System.out.println(listaVacia.joinList(miLinkedList2));
-        System.out.println(listaVacia.joinList(listaVacia));
-        */
         
     }
     
@@ -65,6 +66,7 @@ public class LinkedList<E> implements java.util.List<E> {
     
     public LinkedList(){
         first = null;
+        last = null;
         size = 0;
     }
     
@@ -81,6 +83,24 @@ public class LinkedList<E> implements java.util.List<E> {
     @Override
     public boolean contains(Object o) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        Iterator<E> it = new Iterator<E>() {
+            Node<E> cursor = first;
+            @Override
+            public boolean hasNext() {
+                return cursor != null;
+            }
+            @Override
+            public E next() {
+                E e = cursor.content;
+                cursor = cursor.next.next;
+                return e;
+            }
+        };
+        return it; 
     }
 
     @Override
@@ -106,6 +126,7 @@ public class LinkedList<E> implements java.util.List<E> {
         }
         this.last.next = this.first;
         this.first.previus = this.last;
+
         this.size++;
         return true;
     }
@@ -114,10 +135,12 @@ public class LinkedList<E> implements java.util.List<E> {
     public String toString(){
         Node<E> it = this.first;
         String str = "";
-        while(it!=null){
+
+        while(it!=this.last){
             str += (it.content.toString()+" ");
             it = it.next;
         }
+        str += (this.last.content+" ");
         return str;
     }
 
@@ -177,11 +200,9 @@ public class LinkedList<E> implements java.util.List<E> {
             }
 
         }
-        System.out.println("hola 1 ");
+
         linkedListReverse.last.next = this.first;
-        System.out.println("hola 2 ");
         linkedListReverse.first.previus = this.last;
-        System.out.println("hola 3 ");
         linkedListReverse.size = this.size;
         return linkedListReverse;
     }
@@ -357,26 +378,5 @@ public class LinkedList<E> implements java.util.List<E> {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public Iterator<E> iterator() {
         
-        Iterator<E> it = new Iterator<E>() {
-            Node<E> cursor = first;
-            @Override
-            public boolean hasNext() {
-                return cursor != null;
-            }
-
-            @Override
-            public E next() {
-                E e = cursor.content;
-                cursor = cursor.next.next;
-                return e;
-            }
-        };
-        
-        return it;
-        
-        
-    }
 }
