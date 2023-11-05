@@ -3,5 +3,6 @@ module ec.edu.espol.eddproyecto.fxml {
     requires javafx.fxml;
 
     opens ec.edu.espol.eddproyecto.fxml to javafx.fxml;
+    exports ec.edu.espol.eddproyecto.clases;
     exports ec.edu.espol.eddproyecto.fxml;
 }
