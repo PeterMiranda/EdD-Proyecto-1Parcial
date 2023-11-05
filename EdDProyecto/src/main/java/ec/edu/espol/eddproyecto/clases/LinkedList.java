@@ -34,7 +34,8 @@ public class LinkedList<E> implements List<E>{
         //System.out.println(miLinkedList1.joinList(listaVacia));
         //System.out.println(listaVacia.joinList(miLinkedList2));
         //System.out.println(listaVacia.joinList(listaVacia));
-        
+        for(int entero :miLinkedList1){
+            System.out.println(entero);}
         
     }
     
@@ -88,15 +89,21 @@ public class LinkedList<E> implements List<E>{
     @Override
     public Iterator<E> iterator() {
         Iterator<E> it = new Iterator<E>() {
-            Node<E> cursor = first;
+            Node<E> cursor = null;
             @Override
             public boolean hasNext() {
-                return cursor != null;
+                if (first == null)
+                    return false;
+                if (cursor == null){
+                    cursor = first;
+                    return true;
+                }
+                return cursor != first;
             }
             @Override
             public E next() {
                 E e = cursor.content;
-                cursor = cursor.next.next;
+                cursor = cursor.next;
                 return e;
             }
         };
@@ -135,7 +142,7 @@ public class LinkedList<E> implements List<E>{
     public String toString(){
         Node<E> it = this.first;
         String str = "";
-
+        System.out.println(this.last);
         while(it!=this.last){
             str += (it.content.toString()+" ");
             it = it.next;
