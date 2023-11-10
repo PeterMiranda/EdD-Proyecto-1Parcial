@@ -1,7 +1,7 @@
 package ec.edu.espol.eddproyecto.clases;
 
 
-public class Contact{
+public abstract class Contact {
     
     String name;
     String contactNumber;

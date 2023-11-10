@@ -10,9 +10,9 @@ import java.util.Comparator;
  *
  * @author JorgeHN
  */
-public class comparatorLastname implements Comparator<Contact>{
+public class comparatorLastname implements Comparator<Person>{
     @Override
-    public int compare(Contact o1, Contact o2) {
+    public int compare(Person o1, Person o2) {
         if (o1.getLastname().equals(o2.getLastname())) {
             return 0;
         }
