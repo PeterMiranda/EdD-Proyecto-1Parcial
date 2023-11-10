@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.eddproyecto.fxml.PrimaryController">
    <children>
@@ -21,11 +26,27 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <ListView id="tablaViwer" fx:id="tableView" layoutY="37.0" prefHeight="564.0" prefWidth="354.0" />
+                        <ListView id="tablaViwer" fx:id="tableView" layoutY="71.0" onMouseClicked="#selectEmpleado" prefHeight="530.0" prefWidth="354.0" />
                         <TextField id="searh" fx:id="searhText" layoutX="5.0" layoutY="5.0" prefHeight="26.0" prefWidth="342.0" />
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="setName" layoutX="20.0" layoutY="327.0" prefHeight="35.0" prefWidth="127.0" text="NOMBRE">
+                           <font>
+                              <Font name="System Bold" size="26.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="325.0" prefWidth="578.0">
+                           <children>
+                              <ImageView fx:id="setPhoto" fitHeight="318.0" fitWidth="354.0" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </children></AnchorPane>
               </items>
             </SplitPane>
          </children>

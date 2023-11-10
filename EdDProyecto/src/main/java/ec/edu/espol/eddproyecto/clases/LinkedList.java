@@ -124,9 +124,12 @@ public class LinkedList<E> implements List<E>{
                 cursor = cursor.next;
                 return e;
             }
+
         };
         return it;
     }
+    
+
 
     @Override
     public Object[] toArray() {
@@ -138,6 +141,7 @@ public class LinkedList<E> implements List<E>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    /*
     @Override
     public boolean add(E e) {
         Node<E> newNode = new Node<>(e);
@@ -154,6 +158,34 @@ public class LinkedList<E> implements List<E>{
         this.size++;
         return true;
     }
+    */
+    
+@Override
+public boolean add(E e) {
+    Node<E> newNode = new Node<>(e);
+
+    if (this.first == null) {
+        // La lista está vacía
+        this.first = newNode;
+        this.last = newNode;
+        newNode.next = newNode;  // Conexión circular para un único elemento
+        newNode.previus = newNode;
+    } else {
+        // La lista no está vacía
+        this.last.next = newNode;
+        newNode.previus = this.last;
+        this.last = newNode;
+
+        // Conectar el último elemento con el primero para mantener la lista circular
+        this.last.next = this.first;
+        this.first.previus = this.last;
+    }
+
+    this.size++;
+    return true;
+}
+
+
     
     @Override
     public String toString(){
