@@ -9,7 +9,7 @@ import java.util.ListIterator;
 public class LinkedList<E> implements List<E>{
 
     public static void main(String[] args) {
-        LinkedList<Person> miLinkedList1 = new LinkedList<Person>();
+        LinkedList<Person> miLinkedList1 = new LinkedList<>();
         LinkedList<String> photos = new LinkedList<>();
         photos.add("photo 1 ");
         photos.add("photo 2 ");
@@ -23,9 +23,9 @@ public class LinkedList<E> implements List<E>{
         address.add("Brentwood");
         address.add("NY 11717");
         ArrayList<String> workAddress = new ArrayList<>();
-        address.add("1777 Fish Camp Rd");
-        address.add("Mariposa");
-        address.add("CA 93623");
+        workAddress.add("1777 Fish Camp Rd");
+        workAddress.add("Mariposa");
+        workAddress.add("CA 93623");
         Person persona1 = new Person("Peter","Miranda",contactNumber, workNumber, email, workEmail, photos, address, workAddress);
         miLinkedList1.add(persona1);
         System.out.println(miLinkedList1.toString());

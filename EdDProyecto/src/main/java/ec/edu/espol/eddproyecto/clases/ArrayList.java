@@ -38,7 +38,23 @@ public class ArrayList<E> implements java.util.List<E> {
 
     @Override
     public Iterator<E> iterator() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Iterator<E> it = new Iterator<E>() {
+            int cursor = 0;
+
+            @Override
+            public boolean hasNext() {
+                return cursor < n;
+            }
+
+            @Override
+            public E next() {
+                E e = array[cursor];
+                cursor++;
+                return e;
+            }
+        };
+
+        return it;
     }
 
     @Override
@@ -176,6 +192,9 @@ public class ArrayList<E> implements java.util.List<E> {
 
     @Override
     public String toString() {
+        if(this.isEmpty()){
+            return null;
+        }
         String str = "{ ";
         for(E e:this){
             str+= e.toString() + " ";
