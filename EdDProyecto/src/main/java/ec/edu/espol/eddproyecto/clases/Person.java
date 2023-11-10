@@ -60,5 +60,4 @@ public class Person extends Contact{
         return "Person{" + "name=" + name + "lastname=" + lastname + ", workNumber=" + workNumber + ", contactNumber=" + contactNumber + ", email=" + email + ", workEmail=" + workEmail + ", photos=" + photos.toString() + ", address=" + address.toString() + ", workAddress=" + workAddress.toString() + '}';
     }
     
-    
 }
