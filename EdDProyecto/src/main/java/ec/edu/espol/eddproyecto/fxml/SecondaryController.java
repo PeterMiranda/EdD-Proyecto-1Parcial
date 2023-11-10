@@ -5,24 +5,34 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 public class SecondaryController {
 
     @FXML
-    private Button cancelAniadirContacto;
+    private Button cancelAddContact;
     @FXML
-    private Button checkAniadirContacto;
+    private Button addContact;
     @FXML
-    private TextField setContactName;
+    private TextField getNameFXML;
     @FXML
-    private TextField setContactName1;
+    private TextField getContactNumberFXML;
+    @FXML
+    private TextField getLastnameFXML;
+    @FXML
+    private TextField getEmailFXML;
+    @FXML
+    private TextField getAdressFXML;
+    @FXML
+    private TextField getworkNumberFXML;
+    @FXML
+    private TextField getworkEmailFXML;
+    @FXML
+    private TextField getworkAdressFXML;
 
     @FXML
-    private void cancelAddNewContact(ActionEvent event) throws IOException {
+    private void addNewContact(ActionEvent event) throws IOException {
         App.setRoot("primary");
     }
-
-    @FXML
-    private void checkAddNewContact(ActionEvent event) {
-    }
+    
 }

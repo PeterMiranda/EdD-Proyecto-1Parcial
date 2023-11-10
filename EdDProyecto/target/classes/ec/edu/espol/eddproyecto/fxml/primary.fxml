@@ -32,20 +32,80 @@
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <Label fx:id="setName" layoutX="20.0" layoutY="327.0" prefHeight="35.0" prefWidth="127.0" text="NOMBRE">
+                        <Label fx:id="setName" layoutX="20.0" layoutY="327.0" prefHeight="38.0" prefWidth="547.0" text="NOMBRE">
                            <font>
                               <Font name="System Bold" size="26.0" />
                            </font>
                         </Label>
                         <HBox alignment="CENTER" prefHeight="325.0" prefWidth="578.0">
                            <children>
-                              <ImageView fx:id="setPhoto" fitHeight="318.0" fitWidth="354.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="setPhoto" fitHeight="323.0" fitWidth="360.0" pickOnBounds="true" preserveRatio="true">
                                  <cursor>
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                               </ImageView>
                            </children>
                         </HBox>
+                        <Label layoutX="20.0" layoutY="365.0" text="Número de contacto:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="setEmail" layoutX="70.0" layoutY="385.0" prefHeight="20.0" prefWidth="490.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="385.0" text="E-mail:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="setNumber" layoutX="161.0" layoutY="365.0" prefHeight="20.0" prefWidth="404.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="setAdress" layoutX="20.0" layoutY="405.0" text="Dirección:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="setAdress" layoutX="92.0" layoutY="405.0" prefHeight="20.0" prefWidth="476.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="425.0" text="Número de Trabajo:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="setWorkNumber" layoutX="149.0" layoutY="425.0" prefHeight="20.0" prefWidth="421.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="20.0" layoutY="445.0" text="Dirección de Trabajo:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="setWorkAdress" layoutX="158.0" layoutY="445.0" prefHeight="20.0" prefWidth="410.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="setWorkEmail" layoutX="20.0" layoutY="465.0" text="E-mail de Trabajo:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="setWorkEmail" layoutX="144.0" layoutY="465.0" prefHeight="20.0" prefWidth="410.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
               </items>
             </SplitPane>
