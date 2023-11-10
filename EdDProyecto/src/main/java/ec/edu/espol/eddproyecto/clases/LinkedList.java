@@ -9,39 +9,39 @@ import java.util.ListIterator;
 public class LinkedList<E> implements List<E>{
 
     public static void main(String[] args) {
-        LinkedList<Person> miLinkedList1 = new LinkedList<>();
+        LinkedList<Contact> miLinkedList1 = new LinkedList<>();
         
-        Person persona1 = new Person("Peter","Miranda","1");
+        Contact persona1 = new Contact("Peter","Miranda","1");
         miLinkedList1.add(persona1);
-        miLinkedList1.add(new Person("Paul","Pluas","2"));
-        miLinkedList1.add(new Person("Manuel","Calabera","3"));
-        miLinkedList1.add(new Person("Cristhian","Herrera","4"));
-        miLinkedList1.add(new Person("Jorge","Herrera","20"));
-        miLinkedList1.add(new Person("Javier","Tibau","5"));
-        miLinkedList1.add(new Person("Stephanie","Borbor","7"));
-        miLinkedList1.add(new Person("Jorge","Herrera","8"));
-        miLinkedList1.add(new Person("Jose","Cabrera","9"));
-        miLinkedList1.add(new Person("Peter","Griffin","10"));
+        miLinkedList1.add(new Contact("Paul","Pluas","2"));
+        miLinkedList1.add(new Contact("Manuel","Calabera","3"));
+        miLinkedList1.add(new Contact("Cristhian","Herrera","4"));
+        miLinkedList1.add(new Contact("Jorge","Herrera","20"));
+        miLinkedList1.add(new Contact("Javier","Tibau","5"));
+        miLinkedList1.add(new Contact("Stephanie","Borbor","7"));
+        miLinkedList1.add(new Contact("Jorge","Herrera","8"));
+        miLinkedList1.add(new Contact("Jose","Cabrera","9"));
+        miLinkedList1.add(new Contact("Peter","Griffin","10"));
         
         System.out.println(miLinkedList1.toString());
         
-        Comparator<Person> comparadorPersona = new comparatorPerson();
+        Comparator<Contact> comparadorPersona = new comparatorPerson();
         
         //Find retorna la persona EXACTA
-        Person personabuscada1 = new Person("Jorge", "Herrera","8");
+        Contact personabuscada1 = new Contact("Jorge", "Herrera","8");
         System.out.println(miLinkedList1.find(comparadorPersona, personabuscada1));
         
         //Find 2 basados en filtros de su elección
-        Person personabuscada2 = new Person("Peter", "Quill","15");
-        Comparator<Person> comparadorNombre = new comparatorName();
+        Contact personabuscada2 = new Contact("Peter", "Quill","15");
+        Comparator<Contact> comparadorNombre = new comparatorName();
         System.out.println(miLinkedList1.find(comparadorNombre, personabuscada2));
         
-        Person personabuscada3 = new Person("Juan", "Herrera","404");
-        Comparator<Person> comparadorApellido = new comparatorLastname();
+        Contact personabuscada3 = new Contact("Juan", "Herrera","404");
+        Comparator<Contact> comparadorApellido = new comparatorLastname();
         System.out.println(miLinkedList1.find(comparadorApellido, personabuscada3));
         
         //PUNTOS EXTRA (50% más): FindAll retorna lista con todos los objetos que pasan el filtro del comparador.
-        Person personabuscada4 = new Person("N/A", "Herrera","09999999999");   
+        Contact personabuscada4 = new Contact("N/A", "Herrera","09999999999");   
         System.out.println(miLinkedList1.findAll(comparadorApellido, personabuscada4));
     }
     
