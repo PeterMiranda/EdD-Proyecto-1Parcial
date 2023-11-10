@@ -173,5 +173,15 @@ public class ArrayList<E> implements java.util.List<E> {
     public List<E> subList(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public String toString() {
+        String str = "{ ";
+        for(E e:this){
+            str+= e.toString() + " ";
+        }
+        str += "}";
+        return str;
+    }
     
 }

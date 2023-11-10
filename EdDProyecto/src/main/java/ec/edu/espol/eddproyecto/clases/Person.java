@@ -54,6 +54,11 @@ public class Person extends Contact{
     public void setWorkAddress(ArrayList<String> workAddress) {
         this.workAddress = workAddress;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" + "name=" + name + "lastname=" + lastname + ", workNumber=" + workNumber + ", contactNumber=" + contactNumber + ", email=" + email + ", workEmail=" + workEmail + ", photos=" + photos.toString() + ", address=" + address.toString() + ", workAddress=" + workAddress.toString() + '}';
+    }
     
     
 }

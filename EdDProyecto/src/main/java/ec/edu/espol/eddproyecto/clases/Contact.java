@@ -25,11 +25,42 @@ public abstract class Contact {
 
     public void setName(String name) {
         this.name = name;
+    } 
+
+    public String getContactNumber() {
+        return contactNumber;
     }
-   
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public LinkedList<String> getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(LinkedList<String> photos) {
+        this.photos = photos;
+    }
+
+    public ArrayList<String> getAddress() {
+        return address;
+    }
+
+    public void setAddress(ArrayList<String> address) {
+        this.address = address;
+    }
+
 //    @Override
 //    public String toString() {
 //        return "{" + name + ", " + lastname + ", " + id + '}';
-//    }    
-
+//    }   
 }
