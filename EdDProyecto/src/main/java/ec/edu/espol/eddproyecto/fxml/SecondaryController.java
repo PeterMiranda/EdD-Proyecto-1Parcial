@@ -63,6 +63,7 @@ public class SecondaryController {
     
     LinkedList<Contact> contacts = new LinkedList<>();
     
+    @FXML
     private void addNewContact() throws IOException {
         Contact newContact;
         if (companyContact.isSelected()){
