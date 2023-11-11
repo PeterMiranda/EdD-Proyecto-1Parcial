@@ -25,4 +25,5 @@ public class SecondaryController {
     @FXML
     private void checkAddNewContact(ActionEvent event) {
     }
+    
 }

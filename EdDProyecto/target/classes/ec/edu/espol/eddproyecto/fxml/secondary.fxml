@@ -1,32 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.eddproyecto.fxml.SecondaryController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="584.8000793457031" minWidth="10.0" prefWidth="324.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="128.59998168945313" minHeight="0.0" prefHeight="34.40001220703125" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="291.99998779296874" minHeight="10.0" prefHeight="291.99998779296874" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
-      <VBox prefHeight="636.0" prefWidth="939.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="939.0">
-              <items>
-                <Button fx:id="cancelAniadirContacto" alignment="TOP_RIGHT" cancelButton="true" mnemonicParsing="false" onAction="#cancelAddNewContact" text="X" />
-                  <Label prefHeight="18.0" prefWidth="378.0" text="                                                         " />
-                  <Label text="NUEVO CONTACTO" textAlignment="CENTER" textOverrun="CLIP" />
-                  <Label prefHeight="18.0" prefWidth="378.0" text="                                                         " />
-                  <Button fx:id="checkAniadirContacto" alignment="TOP_RIGHT" cancelButton="true" mnemonicParsing="false" onAction="#checkAddNewContact" text="+" />
-              </items>
-            </ToolBar>
-            <AnchorPane prefHeight="605.0" prefWidth="939.0">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <TextField fx:id="setContactName" layoutX="204.0" layoutY="125.0" prefHeight="26.0" prefWidth="530.0" text="Nombre" />
-                  <TextField fx:id="setContactName1" layoutX="204.0" layoutY="167.0" prefHeight="26.0" prefWidth="530.0" />
+                  <Button mnemonicParsing="false" text="Company Contact" />
                </children>
-            </AnchorPane>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="200.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Cancel" />
+               </children>
+            </VBox>
          </children>
-      </VBox>
+      </HBox>
+      <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
    </children>
-</AnchorPane>
+</GridPane>
