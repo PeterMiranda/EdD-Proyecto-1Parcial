@@ -6,7 +6,11 @@ import ec.edu.espol.eddproyecto.clases.Contact;
 import ec.edu.espol.eddproyecto.clases.LinkedList;
 import ec.edu.espol.eddproyecto.clases.Person;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,8 +26,6 @@ public class SecondaryController {
 
     @FXML
     private Button cancelAddContact;
-    @FXML
-    private Button addContact;
     @FXML
     private TextField getNameFXML;
     @FXML
@@ -55,14 +57,11 @@ public class SecondaryController {
     @FXML
     private Button saveContact;
     
+    LinkedList<Contact> contacts = new LinkedList<>();
 
     @FXML
-    private void addNewContact(ActionEvent event) throws IOException {
-        App.setRoot("primary");
-    }
-    
-    private void addNewContact() {
-
+    private void addNewContact() throws IOException {
+        Contact newContact;
         if (companyContact.isSelected()){
             String name = getNameFXML.getText();
             String contactNumber = getContactNumberFXML.getText();
@@ -72,7 +71,7 @@ public class SecondaryController {
             address.add(getAdressFXML1.getText());
             address.add(getAdressFXML2.getText());
             address.add(getAdressFXML3.getText());
-            Contact newContact = new Company(name,contactNumber,email,photos,address);
+            newContact = new Company(name,contactNumber,email,photos,address);
         } else {
             String name = getNameFXML.getText();
             String lastname = getLastnameFXML.getText();
@@ -89,9 +88,16 @@ public class SecondaryController {
             workAddress.add(getworkAdressFXML1.getText());
             workAddress.add(getworkAdressFXML2.getText());
             workAddress.add(getworkAdressFXML3.getText());
-            Contact newContact = new Person(name, lastname,contactNumber,workNumber,email,workEmail,photos,address,workAddress);
+            newContact = new Person(name, lastname,contactNumber,workNumber,email,workEmail,photos,address,workAddress);
         }
         
+        contacts = deserializeLinkedList("src/main/resources/contacts.ser");
+        contacts.add(newContact);
+        serializeLinkedList(contacts, "src/main/resources/contacts.ser");
+
+        
+//        PrimaryController.showContacts(newContact);
+        App.setRoot("primary");
         
         
         //Person newPersona = new Person(name,lastName, contactNumber, workNumber, email, workEmail, photos, address, workAddress);
@@ -123,7 +129,30 @@ public class SecondaryController {
     @FXML
     private void removeFieldsPerson(ActionEvent event) {
     }
-    
 
+    @FXML
+    private void cancelAddContact(ActionEvent event) {
+    }
+    
+    private static void serializeLinkedList(LinkedList<Contact> listContacts, String fileName) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))) {
+            oos.writeObject(listContacts);
+            System.out.println("LinkedList serializada correctamente.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Método para deserializar una LinkedList
+    private static LinkedList<Contact> deserializeLinkedList(String fileName) {
+        LinkedList<Contact> deserializedList = null;
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
+            deserializedList = (LinkedList<Contact>) ois.readObject();
+            System.out.println("LinkedList deserializada correctamente.");
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("vacio");
+        }
+        return deserializedList;
+    }
     
 }

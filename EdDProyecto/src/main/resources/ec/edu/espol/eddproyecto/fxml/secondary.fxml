@@ -22,21 +22,6 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="51.0" prefWidth="909.0">
                      <children>
-                        <VBox alignment="CENTER">
-                           <children>
-                              <Button fx:id="cancelAddContact" graphicTextGap="0.0" mnemonicParsing="false" onAction="#addNewContact" text="x">
-                                 <font>
-                                    <Font name="Arial Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" top="5.0" />
-                           </padding>
-                        </VBox>
                         <VBox alignment="CENTER" prefHeight="51.0" prefWidth="836.0">
                            <children>
                               <Label alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="NUEVO CONTACTO" textAlignment="RIGHT">
@@ -48,12 +33,18 @@
                         </VBox>
                         <VBox alignment="CENTER">
                            <children>
-                              <Button fx:id="addContact" mnemonicParsing="false" text="+">
+                              <Button fx:id="cancelAddContact" graphicTextGap="0.0" mnemonicParsing="false" onAction="#cancelAddContact" text="x">
                                  <font>
-                                    <Font name="System Bold" size="12.0" />
+                                    <Font name="Arial Bold" size="12.0" />
                                  </font>
                               </Button>
                            </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" top="5.0" />
+                           </padding>
                         </VBox>
                      </children>
                      <HBox.margin>
@@ -166,7 +157,7 @@
                   </ScrollPane>
                </children>
             </HBox>
-            <Button fx:id="saveContact" mnemonicParsing="false" text="Save Contact">
+            <Button fx:id="saveContact" mnemonicParsing="false" onAction="#addNewContact" text="Save Contact">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
