@@ -34,21 +34,27 @@
             </ToolBar>
             <AnchorPane prefHeight="611.0" prefWidth="939.0">
                <children>
-                  <ImageView fitHeight="281.0" fitWidth="319.0" layoutX="596.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="281.0" fitWidth="319.0" layoutX="609.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../fotos/contacto.jpg" />
                      </image></ImageView>
                   <TextField fx:id="getNameFXML" layoutX="40.0" layoutY="40.0" prefHeight="26.0" prefWidth="514.0" promptText="Nombre" />
                   <TextField fx:id="getContactNumberFXML" layoutX="40.0" layoutY="84.0" prefHeight="26.0" prefWidth="514.0" promptText="Número de Contacto" />
                   <TextField fx:id="getLastnameFXML" layoutX="40.0" layoutY="128.0" prefHeight="26.0" prefWidth="514.0" promptText="Apellido" />
-                  <TextField fx:id="getEmailFXML" layoutX="41.0" layoutY="176.0" prefHeight="26.0" prefWidth="514.0" promptText="E-mail" />
-                  <TextField fx:id="getAdressFXML" layoutX="40.0" layoutY="224.0" prefHeight="26.0" prefWidth="514.0" promptText="Dirección" />
-                  <TextField fx:id="getworkNumberFXML" layoutX="41.0" layoutY="273.0" prefHeight="26.0" prefWidth="514.0" promptText="Número de contacto del trabajo" />
-                  <TextField fx:id="getworkEmailFXML" layoutX="41.0" layoutY="318.0" prefHeight="26.0" prefWidth="514.0" promptText="Email del trabajo" />
-                  <TextField fx:id="getworkAdressFXML" layoutX="41.0" layoutY="366.0" prefHeight="26.0" prefWidth="597.0" promptText="Dirección del trabajo" />
+                  <TextField fx:id="getEmailFXML" layoutX="41.0" layoutY="171.0" prefHeight="26.0" prefWidth="514.0" promptText="E-mail" />
+                  <TextField fx:id="getAdressFXML1" layoutX="40.0" layoutY="218.0" prefHeight="26.0" prefWidth="514.0" promptText="Dirección Principal" />
+                  <TextField fx:id="getworkNumberFXML" layoutX="41.0" layoutY="359.0" prefHeight="26.0" prefWidth="514.0" promptText="Número de contacto del trabajo" />
+                  <TextField fx:id="getworkEmailFXML" layoutX="41.0" layoutY="405.0" prefHeight="26.0" prefWidth="514.0" promptText="Email del trabajo" />
+                  <TextField fx:id="getworkAdressFXML1" layoutX="41.0" layoutY="451.0" prefHeight="26.0" prefWidth="597.0" promptText="Dirección del trabajo Principal" />
+                  <TextField fx:id="getAdressFXML2" layoutX="41.0" layoutY="265.0" prefHeight="26.0" prefWidth="514.0" promptText="Dirección Secundaria" />
+                  <TextField fx:id="getAdressFXML3" layoutX="41.0" layoutY="312.0" prefHeight="26.0" prefWidth="514.0" promptText="Dirección Adicional" />
+                  <TextField fx:id="getworkAdressFXML2" layoutX="42.0" layoutY="494.0" prefHeight="26.0" prefWidth="597.0" promptText="Dirección del trabajo Secundaria" />
+                  <TextField fx:id="getworkAdressFXML3" layoutX="42.0" layoutY="537.0" prefHeight="26.0" prefWidth="597.0" promptText="Dirección del trabajo Adicional" />
+                  <Button fx:id="addPhoto" layoutX="781.0" layoutY="325.0" mnemonicParsing="false" onAction="#addNewPhoto" text="Añadir Imagen" />
                </children>
             </AnchorPane>
          </children>
       </VBox>
+      <Button mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>

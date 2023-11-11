@@ -70,6 +70,7 @@ public class LinkedList<E> implements List<E>{
         return this.size;
     }
 
+
     @Override
     public boolean isEmpty() {
         return first == null;
@@ -82,25 +83,26 @@ public class LinkedList<E> implements List<E>{
 
     @Override
     public Iterator<E> iterator() {
+        
         Iterator<E> it = new Iterator<E>() {
             Node<E> cursor = first;
             @Override
             public boolean hasNext() {
-                return cursor != last;
+                System.out.println("hola");
+                return cursor.next != first;
             }
+
             @Override
             public E next() {
                 E e = cursor.content;
                 cursor = cursor.next;
                 return e;
             }
-
         };
+        
         return it;
     }
     
-
-
     @Override
     public Object[] toArray() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -130,33 +132,30 @@ public class LinkedList<E> implements List<E>{
     }
     */
     
-@Override
-public boolean add(E e) {
-    Node<E> newNode = new Node<>(e);
+    @Override
+    public boolean add(E e) {
+        Node<E> newNode = new Node<>(e);
+        if (this.first == null) {
+            // La lista está vacía
+            this.first = newNode;
+            this.last = newNode;
+            newNode.next = newNode;  // Conexión circular para un único elemento
+            newNode.previus = newNode;
+        } else {
+            // La lista no está vacía
+            this.last.next = newNode;
+            newNode.previus = this.last;
+            this.last = newNode;
 
-    if (this.first == null) {
-        // La lista está vacía
-        this.first = newNode;
-        this.last = newNode;
-        newNode.next = newNode;  // Conexión circular para un único elemento
-        newNode.previus = newNode;
-    } else {
-        // La lista no está vacía
-        this.last.next = newNode;
-        newNode.previus = this.last;
-        this.last = newNode;
+            // Conectar el último elemento con el primero para mantener la lista circular
+            this.last.next = this.first;
+            this.first.previus = this.last;
+        }
 
-        // Conectar el último elemento con el primero para mantener la lista circular
-        this.last.next = this.first;
-        this.first.previus = this.last;
+        this.size++;
+        return true;
     }
 
-    this.size++;
-    return true;
-}
-
-
-    
     @Override
     public String toString(){
         Node<E> it = this.first;
@@ -164,7 +163,9 @@ public boolean add(E e) {
         while(it!=this.last){
             str += (it.content.toString()+" ");
             it = it.next;
+            System.out.println("Hola123");
         }
+        System.out.println(this.last.content);
         str += (this.last.content+" ");
         return str;
     }

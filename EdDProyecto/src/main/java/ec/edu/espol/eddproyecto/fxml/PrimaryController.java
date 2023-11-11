@@ -1,6 +1,5 @@
 package ec.edu.espol.eddproyecto.fxml;
 
-import ec.edu.espol.eddproyecto.clases.ArrayList;
 import ec.edu.espol.eddproyecto.clases.Person;
 import ec.edu.espol.eddproyecto.clases.LinkedList;
 import ec.edu.espol.eddproyecto.clases.ArrayList;
@@ -83,12 +82,10 @@ public class PrimaryController {
         
         miLinkedList1.add(persona2);
         miLinkedList1.add(persona1);
+        miLinkedList1.add(persona2);
         
-        System.out.println(miLinkedList1.get(0));
-        System.out.println(miLinkedList1.get(1));
-        
-        
-        tableView.getItems().setAll(miLinkedList1);
+        tableView.getItems().addAll(miLinkedList1);
+        tableView.getItems().add(miLinkedList1.getLast());
     }
 
     @FXML
@@ -112,11 +109,11 @@ public class PrimaryController {
            //System.out.println(person.getPhotos().get(0));
            setNumber.setText(String.valueOf(person.getContactNumber()));
            setEmail.setText(String.valueOf(person.getEmail()));
-           setAdress.setText(String.valueOf(person.getAddress().get(0)));
+           setAdress.setText(String.valueOf(person.getAddress().toString()));
            setWorkNumber.setText(String.valueOf(person.getWorkNumber()));
            setWorkEmail.setText(String.valueOf(person.getWorkEmail()));
            setWorkEmail.setText(String.valueOf(person.getWorkEmail()));
-           setWorkAdress.setText(String.valueOf(person.getAddress().get(1)));
+           setWorkAdress.setText(String.valueOf(person.getAddress().toString()));
         }
     }
 }
