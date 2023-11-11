@@ -1,7 +1,9 @@
 package ec.edu.espol.eddproyecto.clases;
 
+import java.io.Serializable;
 
-public abstract class Contact {
+
+public class Contact implements Serializable{
     
     String name;
     String contactNumber;

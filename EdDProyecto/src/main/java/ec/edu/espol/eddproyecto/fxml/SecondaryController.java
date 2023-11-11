@@ -1,6 +1,9 @@
 package ec.edu.espol.eddproyecto.fxml;
 
 import ec.edu.espol.eddproyecto.clases.ArrayList;
+import ec.edu.espol.eddproyecto.clases.Company;
+import ec.edu.espol.eddproyecto.clases.Contact;
+import ec.edu.espol.eddproyecto.clases.LinkedList;
 import ec.edu.espol.eddproyecto.clases.Person;
 import java.io.File;
 import java.io.IOException;
@@ -8,6 +11,7 @@ import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -46,6 +50,11 @@ public class SecondaryController {
     private TextField getAdressFXML2;
     @FXML
     private Button addPhoto;
+    @FXML
+    private CheckBox companyContact;
+    @FXML
+    private Button saveContact;
+    
 
     @FXML
     private void addNewContact(ActionEvent event) throws IOException {
@@ -53,21 +62,35 @@ public class SecondaryController {
     }
     
     private void addNewContact() {
-        String name = getNameFXML.getText();
-        String lastName = getLastnameFXML.getText();
-        String contactNumber = getContactNumberFXML.getText();
-        String workNumber = getworkNumberFXML.getText();
-        String email = getEmailFXML.getText();
-        ArrayList<String> address = new ArrayList<>();
-        address.add(getAdressFXML1.getText());
-        address.add(getAdressFXML2.getText());
-        address.add(getAdressFXML3.getText());
-        String workEmail = getworkEmailFXML.getText();
-        ArrayList<String> workAddress = new ArrayList<>();
-        address.add(getworkAdressFXML1.getText());
-        address.add(getworkAdressFXML2.getText());
-        address.add(getworkAdressFXML3.getText());
-        
+
+        if (companyContact.isSelected()){
+            String name = getNameFXML.getText();
+            String contactNumber = getContactNumberFXML.getText();
+            String email = getEmailFXML.getText();
+            LinkedList<String> photos = new LinkedList<>();
+            ArrayList<String> address = new ArrayList<>();
+            address.add(getAdressFXML1.getText());
+            address.add(getAdressFXML2.getText());
+            address.add(getAdressFXML3.getText());
+            Contact newContact = new Company(name,contactNumber,email,photos,address);
+        } else {
+            String name = getNameFXML.getText();
+            String lastname = getLastnameFXML.getText();
+            String contactNumber = getContactNumberFXML.getText();
+            String workNumber = getworkNumberFXML.getText();
+            String email = getEmailFXML.getText();
+            LinkedList<String> photos = new LinkedList<>();
+            ArrayList<String> address = new ArrayList<>();
+            address.add(getAdressFXML1.getText());
+            address.add(getAdressFXML2.getText());
+            address.add(getAdressFXML3.getText());
+            String workEmail = getworkEmailFXML.getText();
+            ArrayList<String> workAddress = new ArrayList<>();
+            workAddress.add(getworkAdressFXML1.getText());
+            workAddress.add(getworkAdressFXML2.getText());
+            workAddress.add(getworkAdressFXML3.getText());
+            Contact newContact = new Person(name, lastname,contactNumber,workNumber,email,workEmail,photos,address,workAddress);
+        }
         
         
         
@@ -96,5 +119,11 @@ public class SecondaryController {
             System.out.println("Ningún archivo seleccionado.");
         }
     }
+
+    @FXML
+    private void removeFieldsPerson(ActionEvent event) {
+    }
+    
+
     
 }

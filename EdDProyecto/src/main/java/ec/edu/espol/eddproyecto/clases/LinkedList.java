@@ -1,12 +1,13 @@
 package ec.edu.espol.eddproyecto.clases;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class LinkedList<E> implements List<E>{
+public class LinkedList<E> implements List<E>, Serializable{
 
     public static void main(String[] args) {
         /*
@@ -48,7 +49,7 @@ public class LinkedList<E> implements List<E>{
     }
     
     
-    private class Node<E> {
+    private class Node<E> implements Serializable{
         E content;
         Node<E> next, previus;
         

@@ -1,5 +1,6 @@
 package ec.edu.espol.eddproyecto.clases;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 
-public class ArrayList<E> implements java.util.List<E> {
+public class ArrayList<E> implements java.util.List<E>, Serializable{
 
     private E[] array;
     int n,capacity;
