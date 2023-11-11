@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -142,11 +141,7 @@
                                  <children>
                                     <StackPane>
                                        <children>
-                                          <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../fotos/contacto.jpg" />
-                                             </image>
-                                          </ImageView>
+                                          <ImageView fx:id="photoViewer" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
                                     <Button fx:id="addPhoto" mnemonicParsing="false" onAction="#addNewPhoto" text="Add Photo" />

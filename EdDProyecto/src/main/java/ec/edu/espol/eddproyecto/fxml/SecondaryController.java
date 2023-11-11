@@ -6,6 +6,8 @@ import ec.edu.espol.eddproyecto.clases.Contact;
 import ec.edu.espol.eddproyecto.clases.LinkedList;
 import ec.edu.espol.eddproyecto.clases.Person;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -54,6 +57,8 @@ public class SecondaryController {
     private CheckBox companyContact;
     @FXML
     private Button saveContact;
+    @FXML
+    private ImageView photoViewer;
     
 
     @FXML
@@ -62,7 +67,6 @@ public class SecondaryController {
     }
     
     private void addNewContact() {
-
         if (companyContact.isSelected()){
             String name = getNameFXML.getText();
             String contactNumber = getContactNumberFXML.getText();
@@ -91,39 +95,61 @@ public class SecondaryController {
             workAddress.add(getworkAdressFXML3.getText());
             Contact newContact = new Person(name, lastname,contactNumber,workNumber,email,workEmail,photos,address,workAddress);
         }
-        
-        
-        
+
         //Person newPersona = new Person(name,lastName, contactNumber, workNumber, email, workEmail, photos, address, workAddress);
         
     }
+    
+    LinkedList<String> selectedPhotos = new LinkedList<>();
 
     @FXML
-    private void addNewPhoto(ActionEvent event) {
+    private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Seleccionar foto");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Archivos de imagen", "*.png", "*.jpg", "*.gif"),
                 new FileChooser.ExtensionFilter("Todos los archivos", "*.*")
         );
-
+        
         Stage stage = (Stage) addPhoto.getScene().getWindow();
         List<File> selectedFiles = fileChooser.showOpenMultipleDialog(stage);
 
-        if (selectedFiles != null) {
+        if (selectedFiles != null && !selectedFiles.isEmpty()) {
             for (File file : selectedFiles) {
-                System.out.println("Archivo seleccionado: " + file.getAbsolutePath());
-                // Puedes almacenar la ruta del archivo o procesarlo de alguna otra manera
+                String filePath = file.getAbsolutePath();
+                System.out.println("Archivo seleccionado: " + filePath);
+                selectedPhotos.add(filePath);
             }
         } else {
-            System.out.println("Ningún archivo seleccionado.");
+            System.out.println("Ningún archivo seleccionado.");  
         }
+        System.out.println(selectedPhotos);
+        startPhotoViewer();
     }
+    
+    
+    private void startPhotoViewer() throws FileNotFoundException{
+        FileInputStream stream = new FileInputStream(selectedPhotos.get(0));
+        Image image = new Image(stream);
+        
+        photoViewer.setImage(image);
+    }
+    
+    
+    
+    
+    
+    private boolean camposDeshabilitados = false;
 
     @FXML
     private void removeFieldsPerson(ActionEvent event) {
+        camposDeshabilitados = !camposDeshabilitados;
+        getLastnameFXML.setDisable(camposDeshabilitados);
+        getworkNumberFXML.setDisable(camposDeshabilitados);
+        getworkEmailFXML.setDisable(camposDeshabilitados);
+        getworkAdressFXML1.setDisable(camposDeshabilitados);
+        getworkAdressFXML2.setDisable(camposDeshabilitados);
+        getworkAdressFXML3.setDisable(camposDeshabilitados);
     }
-    
-
     
 }

@@ -164,7 +164,6 @@ public class LinkedList<E> implements List<E>, Serializable{
         while(it!=this.last){
             str += (it.content.toString()+" ");
             it = it.next;
-            System.out.println("Hola123");
         }
         System.out.println(this.last.content);
         str += (this.last.content+" ");
