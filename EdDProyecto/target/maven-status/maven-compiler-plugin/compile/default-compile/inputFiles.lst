@@ -1,12 +1,13 @@
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\LinkedList.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\fxml\PrimaryController.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\Person.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\Company.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\module-info.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\ArrayList.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\comparatorName.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\comparatorLastname.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\fxml\SecondaryController.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\comparatorPerson.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\fxml\App.java
-C:\Users\PC\Documents\OneDrive - Escuela Superior Politécnica del Litoral\ESPOL\2023 PAO II\Estructura de Datos\Práctico\EdD-Proyecto-1Parcial\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\Contact.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\Person.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\Contact.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\fxml\PrimaryController.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\comparatorName.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\fxml\SecondaryController.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\fxml\CreateContactController.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\fxml\App.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\module-info.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\ArrayList.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\comparatorLastname.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\Company.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\comparatorPerson.java
+D:\MiPC\Material de estudio\Estructuras de datos\EdD-Proyecto-1Parcial\EdDProyecto\src\main\java\ec\edu\espol\eddproyecto\clases\LinkedList.java

@@ -28,6 +28,18 @@ public class PrimaryController {
     private Label setName;
     @FXML
     private ImageView setPhoto;
+    @FXML
+    private Label setEmail;
+    @FXML
+    private Label setNumber;
+    @FXML
+    private Label setAdress;
+    @FXML
+    private Label setWorkNumber;
+    @FXML
+    private Label setWorkAdress;
+    @FXML
+    private Label setWorkEmail;
 
     private void addItemsToListView() {
         LinkedList<Person> miLinkedList1 = new LinkedList<>();
@@ -93,14 +105,18 @@ public class PrimaryController {
     private void selectEmpleado(MouseEvent event) {
         Person person = tableView.getSelectionModel().getSelectedItem();
         if (person!=null){
-            setName.setText(String.valueOf(person.getName()));
-            //ImagenView
-            
+            setName.setText(String.valueOf(person.getName() +" "+ person.getLastname()));
+            //ImagenView      
             Image image = new Image(getClass().getResourceAsStream(person.getPhotos().get(0)));
             setPhoto.setImage(image);
-           
-            System.out.println(person.getPhotos().get(0));
+           //System.out.println(person.getPhotos().get(0));
+           setNumber.setText(String.valueOf(person.getContactNumber()));
+           setEmail.setText(String.valueOf(person.getEmail()));
+           setAdress.setText(String.valueOf(person.getAddress().get(0)));
+           setWorkNumber.setText(String.valueOf(person.getWorkNumber()));
+           setWorkEmail.setText(String.valueOf(person.getWorkEmail()));
+           setWorkEmail.setText(String.valueOf(person.getWorkEmail()));
+           setWorkAdress.setText(String.valueOf(person.getAddress().get(1)));
         }
     }
-    
 }
