@@ -23,7 +23,7 @@ import javafx.scene.input.MouseEvent;
 public class PrimaryController {
     
     @FXML
-    private ListView<Contact> tableView; // Especifica el tipo de elementos aquí
+    private ListView<Contact> tableView = new ListView<>(); // Especifica el tipo de elementos aquí
     @FXML
     private Button aniadirContacto;
     @FXML
@@ -89,9 +89,8 @@ public class PrimaryController {
 //        contacts.add(persona2);
 //        contacts.add(persona1);
 //        contacts.add(persona2);
-        
         tableView.getItems().addAll(contacts);
-        tableView.getItems().add(contacts.getLast());
+        
     }
 
     @FXML
@@ -102,15 +101,22 @@ public class PrimaryController {
         catch(Exception ioe){
             System.out.println("kk");
         }
-        addItemsToListView();
+        tableView.getItems().addAll(contacts);
     }
     
     private void initialize(Contact newContact) {
         contacts = deserializeLinkedList("src/main/resources/contacts.ser");
-        addItemsToListView();
+        System.out.println(newContact.toString());
+        System.out.println(contacts.toString());
         System.out.println("esta si es");
     }
-
+    
+    public static void showContacts(Contact contact) throws IOException {
+        PrimaryController controller = new PrimaryController();
+        controller.initialize(contact);
+        App.setRoot("primary");
+    }
+    
     @FXML
     private void addNewContact(ActionEvent event) throws IOException {
         serializeLinkedList(contacts, "src/main/resources/contacts.ser");

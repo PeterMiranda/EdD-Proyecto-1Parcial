@@ -84,15 +84,18 @@ public class LinkedList<E> implements List<E>, Serializable{
 
     @Override
     public Iterator<E> iterator() {
-        
         Iterator<E> it = new Iterator<E>() {
-            Node<E> cursor = first;
+            Node<E> cursor = null;
             @Override
             public boolean hasNext() {
-                System.out.println("hola");
-                return cursor.next != first;
+                if (first == null)
+                    return false;
+                if (cursor == null){
+                    cursor = first;
+                    return true;
+                }
+                return cursor != first;
             }
-
             @Override
             public E next() {
                 E e = cursor.content;
@@ -100,8 +103,7 @@ public class LinkedList<E> implements List<E>, Serializable{
                 return e;
             }
         };
-        
-        return it;
+        return it; 
     }
     
     @Override
@@ -159,6 +161,8 @@ public class LinkedList<E> implements List<E>, Serializable{
 
     @Override
     public String toString(){
+        if (this.isEmpty())
+            return "no añadio nada la wbd";
         Node<E> it = this.first;
         String str = "";
         while(it!=this.last){
