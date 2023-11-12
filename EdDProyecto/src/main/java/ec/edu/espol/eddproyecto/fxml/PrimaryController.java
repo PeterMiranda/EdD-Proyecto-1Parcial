@@ -10,6 +10,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,71 +46,71 @@ public class PrimaryController {
     private Label setWorkAdress;
     @FXML
     private Label setWorkEmail;
+    @FXML
+    private Button deletedButton;
     
     private LinkedList<Contact> contacts = new LinkedList<>();
     private Contact newContact;
 
     private void addItemsToListView() {
-//        LinkedList<String> photos = new LinkedList<>();
-//        photos.add("/ec/edu/espol/eddproyecto/fotos/SP.PNG");
-//        photos.add("/ec/edu/espol/eddproyecto/fotos/Perfil.jpg");
-//        photos.add("/ec/edu/espol/eddproyecto/fotos/ZzZ.jpg");
-//        String contactNumber = "+593961443453";
-//        String workNumber = "+593963931234";
-//        String email = "jorgeherrerapro2019@gmail.com";
-//        String workEmail = "joheniet@espol.edu.ec";
-//        ArrayList<String> address = new ArrayList<>();
-//        address.add("194 Timberline Dr");
-//        address.add("Brentwood");
-//        address.add("NY 11717");
-//        ArrayList<String> workAddress = new ArrayList<>();
-//        workAddress.add("1777 Fish Camp Rd");
-//        workAddress.add("Mariposa");
-//        workAddress.add("CA 93623");
-//        Person persona1 = new Person("Peter","Miranda",contactNumber, workNumber, email, workEmail, photos, address, workAddress);
-//        contacts.add(persona1);
-//        
-//        LinkedList<String> photos2 = new LinkedList<>();
-//        photos2.add("/ec/edu/espol/eddproyecto/fotos/moto moto.PNG");
-//        photos2.add("ec/edu/espol/eddproyecto/fotos/DKSAD.PNG");
-//        photos2.add("ec/edu/espol/eddproyecto/fotos/DKHORNY.png");
-//        String contactNumber2 = "+593961443453";
-//        String workNumber2 = "+593963931234";
-//        String email2 = "jorgeherrerapro2019@gmail.com";
-//        String workEmail2 = "joheniet@espol.edu.ec";
-//        ArrayList<String> address2 = new ArrayList<>();
-//        address2.add("194 Timberline Dr");
-//        address2.add("Brentwood");
-//        address2.add("NY 11717");
-//        ArrayList<String> workAddress2 = new ArrayList<>();
-//        workAddress2.add("1777 Fish Camp Rd");
-//        workAddress2.add("Mariposa");
-//        workAddress2.add("CA 93623");
-//        Person persona2 = new Person("Jorge","Herrera",contactNumber2, workNumber2, email2, workEmail2, photos2, address2, workAddress2);
-//        
-//        contacts.add(persona2);
-//        contacts.add(persona1);
-//        contacts.add(persona2);
+    /*
+    LinkedList<String> photos = new LinkedList<>();
+    photos.add("/ec/edu/espol/eddproyecto/fotos/SP.PNG");
+    photos.add("/ec/edu/espol/eddproyecto/fotos/Perfil.jpg");
+    photos.add("/ec/edu/espol/eddproyecto/fotos/ZzZ.jpg");
+        String contactNumber = "+593961443453";
+        String workNumber = "+593963931234";
+        String email = "jorgeherrerapro2019@gmail.com";
+        String workEmail = "joheniet@espol.edu.ec";        ArrayList<String> address = new ArrayList<>();
+        address.add("194 Timberline Dr");
+        address.add("Brentwood");
+        address.add("NY 11717");
+        ArrayList<String> workAddress = new ArrayList<>();
+        workAddress.add("1777 Fish Camp Rd");
+        workAddress.add("Mariposa");
+        workAddress.add("CA 93623");
+        Person persona1 = new Person("Peter","Miranda",contactNumber, workNumber, email, workEmail, photos, address, workAddress);
+        contacts.add(persona1);
+        
+        LinkedList<String> photos2 = new LinkedList<>();
+        photos2.add("/ec/edu/espol/eddproyecto/fotos/moto moto.PNG");
+        photos2.add("ec/edu/espol/eddproyecto/fotos/DKSAD.PNG");
+        photos2.add("ec/edu/espol/eddproyecto/fotos/DKHORNY.png");
+        String contactNumber2 = "+593961443453";
+        String workNumber2 = "+593963931234";
+        String email2 = "jorgeherrerapro2019@gmail.com";
+        String workEmail2 = "joheniet@espol.edu.ec";
+        ArrayList<String> address2 = new ArrayList<>();
+        address2.add("194 Timberline Dr");
+        address2.add("Brentwood");
+        address2.add("NY 11717");
+        ArrayList<String> workAddress2 = new ArrayList<>();
+        workAddress2.add("1777 Fish Camp Rd");
+        workAddress2.add("Mariposa");
+        workAddress2.add("CA 93623");
+        Person persona2 = new Person("Jorge","Herrera",contactNumber2, workNumber2, email2, workEmail2, photos2, address2, workAddress2);
+        
+        contacts.add(persona2);
+        contacts.add(persona1);
+        contacts.add(persona2);
         tableView.getItems().addAll(contacts);
+    */
         
     }
-
+    
     @FXML
     private void initialize() {
         try{
             contacts = deserializeLinkedList("src/main/resources/contacts.ser");
         }
         catch(Exception ioe){
-            System.out.println("kk");
+            System.out.println("NO DESERIALIZADA");
         }
-        tableView.getItems().addAll(contacts);
+        tableView.getItems().setAll(contacts);
     }
     
     private void initialize(Contact newContact) {
         contacts = deserializeLinkedList("src/main/resources/contacts.ser");
-        System.out.println(newContact.toString());
-        System.out.println(contacts.toString());
-        System.out.println("esta si es");
     }
     
     public static void showContacts(Contact contact) throws IOException {
@@ -138,8 +140,8 @@ public class PrimaryController {
                 setName.setText(String.valueOf(contact.getName()));
             }
             //ImagenView      
-            Image image = new Image(getClass().getResourceAsStream(contact.getPhotos().get(0)));
-            setPhoto.setImage(image);
+            //Image image = new Image(getClass().getResourceAsStream(contact.getPhotos().get(0)));
+            //setPhoto.setImage(image);
            //System.out.println(person.getPhotos().get(0));
            setNumber.setText(String.valueOf(contact.getContactNumber()));
            setEmail.setText(String.valueOf(contact.getEmail()));
@@ -169,4 +171,40 @@ public class PrimaryController {
         }
         return deserializedList;
     }
+
+    @FXML
+    private void deleteContact(ActionEvent event) {
+        Contact contactToDelete = tableView.getSelectionModel().getSelectedItem();
+        
+        if (contactToDelete != null) {
+            String contactToDeleteNumber = contactToDelete.getContactNumber();
+            System.out.println("CONTACTO A BORRRAR: " +contactToDeleteNumber);
+            
+            System.out.println("ANTES DE BORRAR "+contacts.toString());
+            int i=0;
+            for (Contact contact : contacts) {
+                System.out.println(contact.getContactNumber());
+                if (contact.getContactNumber().equals(contactToDeleteNumber)) {
+                    contacts.remove(i); // Elimina el contacto de la lista
+                    System.out.println("BORRADO CON EXITO");
+                    break;
+                }
+                i++;
+            }                 
+        }
+        ObservableList<Contact> oLContact = FXCollections.observableArrayList(contacts);
+        tableView.setItems(oLContact);
+       
+
+        System.out.println("DESPUES DE BORRAR "+contacts.toString());
+        serializeLinkedList(contacts, "src/main/resources/contacts.ser");
+        //contacts = deserializeLinkedList("src/main/resources/contacts.ser");
+        //System.out.println("DESPUES DE Desesarilazar "+contacts.toString());
+        // Update the TableView
+        //tableView.getItems().setAll(contacts);
+        //tableView.refresh();  
+    }
+    
+    
+
 }

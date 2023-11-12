@@ -37,6 +37,18 @@ public class LinkedList<E> implements List<E>, Serializable{
     Node<E> first;
     Node<E> last;
     private int size;
+    
+    {
+        if (first != null) {
+            int size = 0;
+            for (E e:this){
+                size++;
+            }
+            this.size = size;
+        } else {
+            size = 0;
+        }
+    }
 
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
@@ -105,7 +117,7 @@ public class LinkedList<E> implements List<E>, Serializable{
         };
         return it; 
     }
-    
+        
     @Override
     public Object[] toArray() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -169,7 +181,6 @@ public class LinkedList<E> implements List<E>, Serializable{
             str += (it.content.toString()+" ");
             it = it.next;
         }
-        System.out.println(this.last.content);
         str += (this.last.content+" ");
         return str;
     }
