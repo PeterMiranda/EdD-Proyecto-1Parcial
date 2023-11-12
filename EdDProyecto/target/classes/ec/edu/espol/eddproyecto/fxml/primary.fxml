@@ -37,7 +37,7 @@
                               <Font name="System Bold" size="26.0" />
                            </font>
                         </Label>
-                        <HBox alignment="CENTER" prefHeight="325.0" prefWidth="578.0">
+                        <HBox alignment="CENTER" layoutX="4.0" prefHeight="325.0" prefWidth="578.0">
                            <children>
                               <ImageView fx:id="setPhoto" fitHeight="323.0" fitWidth="360.0" pickOnBounds="true" preserveRatio="true">
                                  <cursor>
@@ -106,6 +106,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
+                        <Button fx:id="deletedButton" mnemonicParsing="false" onAction="#deleteContact" text="Button" />
                      </children></AnchorPane>
               </items>
             </SplitPane>

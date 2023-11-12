@@ -122,13 +122,13 @@ public class SecondaryController {
         if (selectedFiles != null && !selectedFiles.isEmpty()) {
             for (File file : selectedFiles) {
                 String filePath = file.getAbsolutePath();
-                System.out.println("Archivo seleccionado: " + filePath);
+                //System.out.println("Archivo seleccionado: " + filePath);
                 selectedPhotos.add(filePath);
             }
         } else {
             System.out.println("Ningún archivo seleccionado.");  
         }
-        System.out.println(selectedPhotos);
+        //System.out.println(selectedPhotos);
         startPhotoViewer();
     }
     
