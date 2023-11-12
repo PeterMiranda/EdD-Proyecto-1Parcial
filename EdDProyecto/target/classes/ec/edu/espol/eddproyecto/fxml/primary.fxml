@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,109 +9,174 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="939.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.eddproyecto.fxml.PrimaryController">
+<GridPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="585.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.eddproyecto.fxml.PrimaryController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
    <children>
       <VBox prefHeight="636.0" prefWidth="939.0">
          <children>
             <ToolBar prefHeight="30.0" prefWidth="939.0">
-              <items>
-                <Button fx:id="aniadirContacto" mnemonicParsing="false" onAction="#addNewContact" text="+" />
-              </items>
+               <items>
+                  <Button fx:id="aniadirContacto" mnemonicParsing="false" onAction="#addNewContact" text="+" />
+               </items>
             </ToolBar>
-            <SplitPane dividerPositions="0.38035527690700094" prefHeight="636.0" prefWidth="939.0">
-              <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <SplitPane prefHeight="636.0" prefWidth="939.0">
+               <items>
+                  <HBox>
                      <children>
-                        <ListView id="tablaViwer" fx:id="tableView" layoutY="71.0" onMouseClicked="#selectEmpleado" prefHeight="530.0" prefWidth="354.0" />
-                        <TextField id="searh" fx:id="searhText" layoutX="5.0" layoutY="5.0" prefHeight="26.0" prefWidth="342.0" />
-                     </children>
-                  </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                     <children>
-                        <Label fx:id="setName" layoutX="20.0" layoutY="327.0" prefHeight="38.0" prefWidth="547.0" text="NOMBRE">
-                           <font>
-                              <Font name="System Bold" size="26.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER" layoutX="4.0" prefHeight="325.0" prefWidth="578.0">
+                        <VBox alignment="CENTER" prefHeight="548.0" prefWidth="522.0">
                            <children>
-                              <ImageView fx:id="setPhoto" fitHeight="323.0" fitWidth="360.0" pickOnBounds="true" preserveRatio="true">
-                                 <cursor>
-                                    <Cursor fx:constant="DEFAULT" />
-                                 </cursor>
-                              </ImageView>
+                              <TextField id="searh" fx:id="searhText">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                              <ListView id="tablaViwer" fx:id="tableView" onMouseClicked="#selectEmpleado" prefHeight="507.0" prefWidth="363.0" />
                            </children>
-                        </HBox>
-                        <Label layoutX="20.0" layoutY="365.0" text="Número de contacto:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="setEmail" layoutX="70.0" layoutY="385.0" prefHeight="20.0" prefWidth="490.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="20.0" layoutY="385.0" text="E-mail:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="setNumber" layoutX="161.0" layoutY="365.0" prefHeight="20.0" prefWidth="404.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="setAdress" layoutX="20.0" layoutY="405.0" text="Dirección:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="setAdress" layoutX="92.0" layoutY="405.0" prefHeight="20.0" prefWidth="476.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="20.0" layoutY="425.0" text="Número de Trabajo:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="setWorkNumber" layoutX="149.0" layoutY="425.0" prefHeight="20.0" prefWidth="421.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="20.0" layoutY="445.0" text="Dirección de Trabajo:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="setWorkAdress" layoutX="158.0" layoutY="445.0" prefHeight="20.0" prefWidth="410.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="setWorkEmail" layoutX="20.0" layoutY="465.0" text="E-mail de Trabajo:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="setWorkEmail" layoutX="144.0" layoutY="465.0" prefHeight="20.0" prefWidth="410.0">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <Button fx:id="deletedButton" mnemonicParsing="false" onAction="#deleteContact" text="Button" />
-                     </children></AnchorPane>
-              </items>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT">
+                           <children>
+                              <Button fx:id="deletedButton" mnemonicParsing="false" onAction="#deleteContact" text="Delete Contact" />
+                              <HBox alignment="CENTER" prefHeight="324.0" prefWidth="302.0">
+                                 <children>
+                                    <ImageView fx:id="setPhoto" fitHeight="275.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true">
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <Label fx:id="setName" prefHeight="38.0" prefWidth="547.0" text="NOMBRE">
+                                 <font>
+                                    <Font name="System Bold" size="26.0" />
+                                 </font>
+                              </Label>
+                              <HBox>
+                                 <children>
+                                    <Label text="Número de contacto:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="setEmail" prefHeight="20.0" prefWidth="210.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="E-mail:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Label fx:id="setNumber" prefHeight="20.0" prefWidth="210.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label fx:id="setAdress" text="Dirección:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="setAdress" prefHeight="20.0" prefWidth="210.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Número de Trabajo:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="setWorkNumber" prefHeight="20.0" prefWidth="210.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label text="Dirección de Trabajo:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="setWorkAdress" prefHeight="20.0" prefWidth="210.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox>
+                                 <children>
+                                    <Label fx:id="setWorkEmail" text="E-mail de Trabajo:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets right="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label fx:id="setWorkEmail" prefHeight="20.0" prefWidth="210.0">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </items>
             </SplitPane>
          </children>
       </VBox>
    </children>
-</AnchorPane>
+</GridPane>
