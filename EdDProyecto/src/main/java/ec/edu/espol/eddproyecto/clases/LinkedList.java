@@ -364,6 +364,15 @@ public class LinkedList<E> implements List<E>, Serializable{
         if (index == 0){
             tmp = it;
             this.first = it.next;
+            this.first.previus = this.last;
+            this.last.next = this.first;
+            this.size--;
+            return tmp.content;
+        }
+        if (index == size-1){
+            tmp = this.last;
+            this.last = this.last.previus;
+            this.last.next = this.first;
             this.size--;
             return tmp.content;
         }
@@ -372,8 +381,8 @@ public class LinkedList<E> implements List<E>, Serializable{
         }
         tmp = it.next;
         //previus
-        it.next.previus = it;
         it.next = tmp.next;
+        it.next.previus = it;
         this.size--;
         return tmp.content;
     }
