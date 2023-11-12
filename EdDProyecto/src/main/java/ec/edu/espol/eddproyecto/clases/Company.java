@@ -8,5 +8,9 @@ public class Company extends Contact implements Serializable{
         super(name, contactNumber, email, photos, address);
     }
     
+    @Override
+    public String toString() {
+        return name;
+    }
     
 }

@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.eddproyecto.fxml.SecondaryController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.eddproyecto.fxml.SecondaryController">
    <children>
-      <VBox alignment="CENTER" prefHeight="499.0" prefWidth="913.0">
+      <VBox alignment="CENTER" prefHeight="563.0" prefWidth="913.0">
          <children>
             <HBox alignment="CENTER">
                <children>
@@ -58,7 +58,7 @@
                      <content>
                         <HBox alignment="CENTER" prefHeight="447.0" prefWidth="883.0">
                            <children>
-                              <VBox alignment="CENTER" prefHeight="447.0" prefWidth="471.0">
+                              <VBox alignment="CENTER" prefHeight="437.0" prefWidth="428.0">
                                  <children>
                                     <TextField fx:id="getNameFXML" promptText="Name">
                                        <VBox.margin>
@@ -132,9 +132,19 @@
                                  <children>
                                     <StackPane>
                                        <children>
-                                          <ImageView fx:id="photoViewer" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                          <ImageView fx:id="photoViewer" fitHeight="277.0" fitWidth="295.0" pickOnBounds="true" preserveRatio="true" />
                                        </children>
                                     </StackPane>
+                                    <HBox prefHeight="38.0" prefWidth="295.0">
+                                       <children>
+                                          <Button fx:id="prevPhotoButton" mnemonicParsing="false" onAction="#prevPhotoViewer" text="&lt;">
+                                             <HBox.margin>
+                                                <Insets left="90.0" right="60.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="nextPhotoButton" mnemonicParsing="false" onAction="#nextPhotoViewer" text="&gt;" />
+                                       </children>
+                                    </HBox>
                                     <Button fx:id="addPhoto" mnemonicParsing="false" onAction="#addNewPhoto" text="Add Photo" />
                                     <CheckBox fx:id="companyContact" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#removeFieldsPerson" text="Company Contact">
                                        <VBox.margin>

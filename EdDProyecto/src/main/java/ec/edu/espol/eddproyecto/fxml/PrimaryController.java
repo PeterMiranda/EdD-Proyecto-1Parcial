@@ -5,6 +5,7 @@ import ec.edu.espol.eddproyecto.clases.LinkedList;
 import ec.edu.espol.eddproyecto.clases.ArrayList;
 import ec.edu.espol.eddproyecto.clases.Contact;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import java.io.IOException;
@@ -124,7 +125,7 @@ public class PrimaryController {
     }
 
     @FXML
-    private void selectEmpleado(MouseEvent event) {
+    private void selectEmpleado(MouseEvent event) throws FileNotFoundException {
         Contact contact = tableView.getSelectionModel().getSelectedItem();
         if (contact!=null){
             System.out.println(contact instanceof Person);
@@ -138,14 +139,13 @@ public class PrimaryController {
                 setName.setText(String.valueOf(contact.getName()));
             }
             //ImagenView      
-            //Image image = new Image(getClass().getResourceAsStream(contact.getPhotos().get(0)));
-            //setPhoto.setImage(image);
-           //System.out.println(person.getPhotos().get(0));
-           setNumber.setText(String.valueOf(contact.getContactNumber()));
-           setEmail.setText(String.valueOf(contact.getEmail()));
-           setAdress.setText(String.valueOf(contact.getAddress().toString()));
-
-           setWorkAdress.setText(String.valueOf(contact.getAddress().toString()));
+            FileInputStream stream = new FileInputStream(contact.getPhotos().get(0));
+            Image image = new Image(stream);
+        
+            setPhoto.setImage(image);
+            setNumber.setText(String.valueOf(contact.getContactNumber()));
+            setEmail.setText(String.valueOf(contact.getEmail()));
+            setAdress.setText(String.valueOf(contact.getAddress().toString()));
         }
     }
     

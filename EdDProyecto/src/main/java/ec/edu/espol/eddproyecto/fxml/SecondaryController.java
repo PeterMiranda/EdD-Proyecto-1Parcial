@@ -60,8 +60,13 @@ public class SecondaryController {
     private Button saveContact;
     @FXML
     private ImageView photoViewer;
+    @FXML
+    private Button prevPhotoButton;
+    @FXML
+    private Button nextPhotoButton;
     
     LinkedList<Contact> contacts = new LinkedList<>();
+
     
     @FXML
     private void addNewContact() throws IOException {
@@ -71,6 +76,7 @@ public class SecondaryController {
             String contactNumber = getContactNumberFXML.getText();
             String email = getEmailFXML.getText();
             LinkedList<String> photos = new LinkedList<>();
+            photos.addAll(selectedPhotos);
             ArrayList<String> address = new ArrayList<>();
             address.add(getAdressFXML1.getText());
             address.add(getAdressFXML2.getText());
@@ -83,6 +89,7 @@ public class SecondaryController {
             String workNumber = getworkNumberFXML.getText();
             String email = getEmailFXML.getText();
             LinkedList<String> photos = new LinkedList<>();
+            photos.addAll(selectedPhotos);
             ArrayList<String> address = new ArrayList<>();
             address.add(getAdressFXML1.getText());
             address.add(getAdressFXML2.getText());
@@ -107,32 +114,34 @@ public class SecondaryController {
     
     LinkedList<String> selectedPhotos = new LinkedList<>();
 
-    @FXML
-    private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Seleccionar foto");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Archivos de imagen", "*.png", "*.jpg", "*.gif"),
-                new FileChooser.ExtensionFilter("Todos los archivos", "*.*")
-        );
-        
-        Stage stage = (Stage) addPhoto.getScene().getWindow();
-        List<File> selectedFiles = fileChooser.showOpenMultipleDialog(stage);
+@FXML
+private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
+    FileChooser fileChooser = new FileChooser();
 
-        if (selectedFiles != null && !selectedFiles.isEmpty()) {
-            for (File file : selectedFiles) {
-                String filePath = file.getAbsolutePath();
-                //System.out.println("Archivo seleccionado: " + filePath);
-                selectedPhotos.add(filePath);
-            }
-        } else {
-            System.out.println("Ningún archivo seleccionado.");  
+    // Establecer la carpeta inicial en la carpeta actual
+    fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
+
+    fileChooser.setTitle("Seleccionar foto");
+    fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Archivos de imagen", "*.png", "*.jpg", "*.gif"),
+            new FileChooser.ExtensionFilter("Todos los archivos", "*.*")
+    );
+    
+    Stage stage = (Stage) addPhoto.getScene().getWindow();
+    List<File> selectedFiles = fileChooser.showOpenMultipleDialog(stage);
+
+    if (selectedFiles != null && !selectedFiles.isEmpty()) {
+        for (File file : selectedFiles) {
+            String filePath = file.getAbsolutePath();
+            System.out.println("Archivo seleccionado: " + filePath);
+            selectedPhotos.add(filePath);
         }
-        //System.out.println(selectedPhotos);
-        startPhotoViewer();
+    } else {
+        System.out.println("Ningún archivo seleccionado.");  
     }
-    
-    
+    startPhotoViewer();
+}
+
     private void startPhotoViewer() throws FileNotFoundException{
         FileInputStream stream = new FileInputStream(selectedPhotos.get(0));
         Image image = new Image(stream);
@@ -155,7 +164,8 @@ public class SecondaryController {
     }
 
     @FXML
-    private void cancelAddContact(ActionEvent event) {
+    private void cancelAddContact(ActionEvent event) throws IOException {
+        App.setRoot("primary");
     }
     
     private static void serializeLinkedList(LinkedList<Contact> listContacts, String fileName) {
@@ -177,6 +187,15 @@ public class SecondaryController {
             System.out.println("vacio");
         }
         return deserializedList;
+    }
+
+    @FXML
+    private void prevPhotoViewer(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void nextPhotoViewer(ActionEvent event) {
     }
     
 }
