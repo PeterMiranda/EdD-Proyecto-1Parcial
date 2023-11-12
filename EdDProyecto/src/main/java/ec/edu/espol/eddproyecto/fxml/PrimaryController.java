@@ -127,6 +127,7 @@ public class PrimaryController {
     private void selectEmpleado(MouseEvent event) {
         Contact contact = tableView.getSelectionModel().getSelectedItem();
         if (contact!=null){
+            System.out.println(contact instanceof Person);
             if(contact instanceof Person){
                 setName.setText(String.valueOf(contact.getName() +" "+ ((Person)contact).getLastname()));
                 setWorkNumber.setText(String.valueOf(((Person)contact).getWorkNumber()));
