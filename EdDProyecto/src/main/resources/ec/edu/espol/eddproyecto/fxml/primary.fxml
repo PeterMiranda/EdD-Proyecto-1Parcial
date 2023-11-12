@@ -35,7 +35,7 @@
                <items>
                   <HBox>
                      <children>
-                        <VBox alignment="CENTER" prefHeight="548.0" prefWidth="522.0">
+                        <VBox alignment="CENTER" prefHeight="548.0" prefWidth="484.0">
                            <children>
                               <TextField id="searh" fx:id="searhText">
                                  <VBox.margin>
@@ -72,7 +72,7 @@
                                           <Insets right="5.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <Label fx:id="setEmail" prefHeight="20.0" prefWidth="210.0">
+                                    <Label fx:id="setNumber" prefHeight="20.0" prefWidth="210.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -89,7 +89,7 @@
                                           <Insets right="5.0" />
                                        </HBox.margin>
                                     </Label>
-                                    <Label fx:id="setNumber" prefHeight="20.0" prefWidth="210.0">
+                                    <Label fx:id="setEmail" prefHeight="20.0" prefWidth="210.0">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -113,7 +113,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox>
+                              <HBox fx:id="workNumberSection">
                                  <children>
                                     <Label text="Número de Trabajo:">
                                        <font>
@@ -130,7 +130,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox>
+                              <HBox fx:id="workAddressSection">
                                  <children>
                                     <Label text="Dirección de Trabajo:">
                                        <font>
@@ -147,7 +147,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <HBox>
+                              <HBox fx:id="workEmailSection">
                                  <children>
                                     <Label fx:id="setWorkEmail" text="E-mail de Trabajo:">
                                        <font>

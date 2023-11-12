@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 
 public class PrimaryController {
     
@@ -50,6 +51,12 @@ public class PrimaryController {
     
     private LinkedList<Contact> contacts = new LinkedList<>();
     private Contact newContact;
+    @FXML
+    private HBox workNumberSection;
+    @FXML
+    private HBox workAddressSection;
+    @FXML
+    private HBox workEmailSection;
 
     private void addItemsToListView() {
     /*
@@ -128,8 +135,17 @@ public class PrimaryController {
     private void selectEmpleado(MouseEvent event) throws FileNotFoundException {
         Contact contact = tableView.getSelectionModel().getSelectedItem();
         if (contact!=null){
-            System.out.println(contact instanceof Person);
+            setName.setText("");
+            setWorkNumber.setText("");
+            setWorkEmail.setText("");
+            setWorkAdress.setText("");
+            setNumber.setText("");
+            setEmail.setText("");
+            setAdress.setText("");
             if(contact instanceof Person){
+                workNumberSection.setVisible(true);
+                workEmailSection.setVisible(true);
+                workAddressSection.setVisible(true);
                 setName.setText(String.valueOf(contact.getName() +" "+ ((Person)contact).getLastname()));
                 setWorkNumber.setText(String.valueOf(((Person)contact).getWorkNumber()));
                 setWorkEmail.setText(String.valueOf(((Person)contact).getWorkEmail()));
@@ -137,6 +153,9 @@ public class PrimaryController {
             }
             else{
                 setName.setText(String.valueOf(contact.getName()));
+                workNumberSection.setVisible(false);
+                workEmailSection.setVisible(false);
+                workAddressSection.setVisible(false);
             }
             //ImagenView      
             FileInputStream stream = new FileInputStream(contact.getPhotos().get(0));
