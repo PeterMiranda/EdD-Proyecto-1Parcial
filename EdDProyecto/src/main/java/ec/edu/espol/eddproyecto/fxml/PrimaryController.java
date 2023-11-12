@@ -121,11 +121,6 @@ public class PrimaryController {
         contacts = deserializeLinkedList("src/main/resources/contacts.ser");
     }
     
-    public static void showContacts(Contact contact) throws IOException {
-        PrimaryController controller = new PrimaryController();
-        controller.initialize(contact);
-        App.setRoot("primary");
-    }
     
     @FXML
     private void addNewContact(ActionEvent event) throws IOException {
@@ -220,6 +215,13 @@ public class PrimaryController {
         // Update the TableView
         //tableView.getItems().setAll(contacts);
         //tableView.refresh();  
+    }
+
+    @FXML
+    private void setEditContact(ActionEvent event) throws IOException {
+        Contact contact = tableView.getSelectionModel().getSelectedItem();
+        EditContactController controller = new EditContactController();
+        controller.showEditContact(contact,contacts);
     }
     
     

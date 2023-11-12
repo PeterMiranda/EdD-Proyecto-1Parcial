@@ -54,7 +54,7 @@
                                           <Insets right="10.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <Button fx:id="editButton" mnemonicParsing="false" text="Edit Contact" />
+                                    <Button fx:id="editButton" mnemonicParsing="false" onAction="#setEditContact" text="Edit Contact" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="324.0" prefWidth="302.0">
