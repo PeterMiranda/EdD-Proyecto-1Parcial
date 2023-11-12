@@ -10,8 +10,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -178,12 +176,8 @@ public class PrimaryController {
         
         if (contactToDelete != null) {
             String contactToDeleteNumber = contactToDelete.getContactNumber();
-            System.out.println("CONTACTO A BORRRAR: " +contactToDeleteNumber);
-            
-            System.out.println("ANTES DE BORRAR "+contacts.toString());
             int i=0;
             for (Contact contact : contacts) {
-                System.out.println(contact.getContactNumber());
                 if (contact.getContactNumber().equals(contactToDeleteNumber)) {
                     contacts.remove(i); // Elimina el contacto de la lista
                     System.out.println("BORRADO CON EXITO");
@@ -192,11 +186,8 @@ public class PrimaryController {
                 i++;
             }                 
         }
-        ObservableList<Contact> oLContact = FXCollections.observableArrayList(contacts);
-        tableView.setItems(oLContact);
+        tableView.getItems().setAll(contacts);
        
-
-        System.out.println("DESPUES DE BORRAR "+contacts.toString());
         serializeLinkedList(contacts, "src/main/resources/contacts.ser");
         //contacts = deserializeLinkedList("src/main/resources/contacts.ser");
         //System.out.println("DESPUES DE Desesarilazar "+contacts.toString());
