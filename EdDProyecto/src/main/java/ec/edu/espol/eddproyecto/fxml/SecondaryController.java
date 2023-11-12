@@ -10,8 +10,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.List;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,7 +27,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class SecondaryController {
-
+    
     @FXML
     private Button cancelAddContact;
     @FXML
@@ -118,9 +120,7 @@ public class SecondaryController {
 private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
     FileChooser fileChooser = new FileChooser();
 
-    // Establecer la carpeta inicial en la carpeta actual
     fileChooser.setInitialDirectory(new File(System.getProperty("user.dir")));
-
     fileChooser.setTitle("Seleccionar foto");
     fileChooser.getExtensionFilters().addAll(
             new FileChooser.ExtensionFilter("Archivos de imagen", "*.png", "*.jpg", "*.gif"),
@@ -131,11 +131,45 @@ private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
     List<File> selectedFiles = fileChooser.showOpenMultipleDialog(stage);
 
     if (selectedFiles != null && !selectedFiles.isEmpty()) {
-        for (File file : selectedFiles) {
-            String filePath = file.getAbsolutePath();
-            System.out.println("Archivo seleccionado: " + filePath);
-            selectedPhotos.add(filePath);
+        String folderName = getContactNumberFXML.getText();  
+        String currentdirectory = System.getProperty("user.dir");
+        String objetivefolder = "\\src\\main\\resources\\ec\\edu\\espol\\eddproyecto\\fotos";
+
+        File contactFolder = new File(currentdirectory+objetivefolder, folderName);
+        
+        if (!contactFolder.exists()) {
+            contactFolder.mkdirs();  // Crear la carpeta
         }
+        
+        for (File file : selectedFiles) {
+            String fileName = file.getName();
+            File destination = new File(contactFolder, fileName);
+
+            try (InputStream in = new FileInputStream(file);
+                 OutputStream out = new FileOutputStream(destination)) {
+                // Copiar los bytes de la imagen
+                byte[] buffer = new byte[1024];
+                int length;
+                while ((length = in.read(buffer)) > 0) {
+                    out.write(buffer, 0, length);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String filePath = destination.getAbsolutePath();
+            String puntoDeInicio = "\\EdDProyecto";
+
+            int index = filePath.indexOf(puntoDeInicio);
+            if (index != -1) {
+                String parteRestante = filePath.substring(index + puntoDeInicio.length());
+                selectedPhotos.add(System.getProperty("user.dir")+parteRestante);
+            } else {
+                System.out.println("PHOTO LOAD FAIL!!!");
+            }
+        }
+
+        startPhotoViewer();
     } else {
         System.out.println("Ningún archivo seleccionado.");  
     }
