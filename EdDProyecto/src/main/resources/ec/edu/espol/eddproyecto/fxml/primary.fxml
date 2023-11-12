@@ -57,7 +57,7 @@
                                     <Button fx:id="editButton" mnemonicParsing="false" text="Edit Contact" />
                                  </children>
                               </HBox>
-                              <HBox alignment="CENTER" prefHeight="324.0" prefWidth="302.0">
+                              <HBox alignment="CENTER" prefHeight="300.0" prefWidth="412.0">
                                  <children>
                                     <ImageView fx:id="setPhoto" fitHeight="275.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true">
                                        <cursor>
@@ -65,6 +65,29 @@
                                        </cursor>
                                     </ImageView>
                                  </children>
+                              </HBox>
+                              <HBox prefHeight="31.0" prefWidth="412.0">
+                                 <opaqueInsets>
+                                    <Insets right="30.0" />
+                                 </opaqueInsets>
+                                 <children>
+                                    <Button fx:id="prevPhotoButton" mnemonicParsing="false" onAction="#setPrevPhoto" text="&lt;">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets left="90.0" right="80.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="nextPhotoButton" mnemonicParsing="false" onAction="#setNextPhoto" text="&gt;">
+                                       <HBox.margin>
+                                          <Insets left="80.0" right="90.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets right="10.0" />
+                                 </VBox.margin>
                               </HBox>
                               <Label fx:id="setName" prefHeight="38.0" prefWidth="547.0" text="NOMBRE">
                                  <font>

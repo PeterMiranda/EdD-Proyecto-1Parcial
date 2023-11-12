@@ -48,9 +48,6 @@ public class PrimaryController {
     private Label setWorkEmail;
     @FXML
     private Button deletedButton;
-    
-    private LinkedList<Contact> contacts = new LinkedList<>();
-    private Contact newContact;
     @FXML
     private HBox workNumberSection;
     @FXML
@@ -59,6 +56,13 @@ public class PrimaryController {
     private HBox workEmailSection;
     @FXML
     private Button editButton;
+    
+    private LinkedList<Contact> contacts = new LinkedList<>();
+    private Contact newContact;
+    @FXML
+    private Button prevPhotoButton;
+    @FXML
+    private Button nextPhotoButton;
 
     private void addItemsToListView() {
     /*
@@ -133,11 +137,16 @@ public class PrimaryController {
         App.setRoot("secondary");
     }
 
+    private int currentPhotoIndex  = 0;
+    private Contact currentSelectedContact = null;
+    
     @FXML
     private void selectEmpleado(MouseEvent event) throws FileNotFoundException {
+        resetFields();
         Contact contact = tableView.getSelectionModel().getSelectedItem();
         if (contact!=null){
-            resetFields();
+            currentSelectedContact = contact;
+            currentPhotoIndex = 0;
             if(contact instanceof Person){
                 workNumberSection.setVisible(true);
                 workEmailSection.setVisible(true);
@@ -154,14 +163,21 @@ public class PrimaryController {
                 workAddressSection.setVisible(false);
             }
             //ImagenView      
-            FileInputStream stream = new FileInputStream(contact.getPhotos().get(0));
-            Image image = new Image(stream);
-        
-            setPhoto.setImage(image);
+            startPhotoViewer(contact.getPhotos(),currentPhotoIndex);
+            
+            
             setNumber.setText(String.valueOf(contact.getContactNumber()));
             setEmail.setText(String.valueOf(contact.getEmail()));
             setAdress.setText(String.valueOf(contact.getAddress().toString()));
         }
+    }
+    
+    
+    private void startPhotoViewer(LinkedList<String> selectedPhotos, int index) throws FileNotFoundException{
+        FileInputStream stream = new FileInputStream(selectedPhotos.get(index));
+        Image image = new Image(stream);
+
+        setPhoto.setImage(image);
     }
     
     private void resetFields(){
@@ -221,7 +237,41 @@ public class PrimaryController {
         //tableView.getItems().setAll(contacts);
         //tableView.refresh();  
     }
-    
-    
 
+    @FXML
+    private void setPrevPhoto(ActionEvent event) {
+        if (currentSelectedContact != null) {
+            LinkedList<String> selectedPhotos = currentSelectedContact.getPhotos();
+
+            if (!selectedPhotos.isEmpty()) {
+                currentPhotoIndex = (currentPhotoIndex - 1 + selectedPhotos.size()) % selectedPhotos.size();
+
+                try {
+                    startPhotoViewer(selectedPhotos, currentPhotoIndex);
+                } catch (FileNotFoundException e) {
+                    // Manejar la excepción según sea necesario
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @FXML
+    private void setNextPhoto(ActionEvent event) {
+        if (currentSelectedContact != null) {
+            LinkedList<String> selectedPhotos = currentSelectedContact.getPhotos();
+
+            if (!selectedPhotos.isEmpty()) {
+                currentPhotoIndex = (currentPhotoIndex + 1) % selectedPhotos.size();
+
+                try {
+                    startPhotoViewer(selectedPhotos, currentPhotoIndex);
+                } catch (FileNotFoundException e) {
+                        // Manejar la excepción según sea necesario
+                        e.printStackTrace();
+                }
+            }
+        }
+    }
+    
 }
