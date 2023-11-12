@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author JorgeHN
  */
-public class CreateContactController implements Initializable {
+public class EditContactController implements Initializable {
 
     /**
      * Initializes the controller class.

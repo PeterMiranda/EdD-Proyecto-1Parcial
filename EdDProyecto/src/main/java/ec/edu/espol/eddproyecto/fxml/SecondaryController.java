@@ -57,15 +57,15 @@ public class SecondaryController {
     @FXML
     private CheckBox companyContact;
     @FXML
-    private Button saveContact;
-    @FXML
     private ImageView photoViewer;
+    
+    LinkedList<Contact> contacts = new LinkedList<>();
     @FXML
     private Button prevPhotoButton;
     @FXML
     private Button nextPhotoButton;
-    
-    LinkedList<Contact> contacts = new LinkedList<>();
+    @FXML
+    private Button saveContact;
 
     
     @FXML
@@ -101,7 +101,6 @@ public class SecondaryController {
             workAddress.add(getworkAdressFXML3.getText());
             newContact = new Person(name, lastname,contactNumber,workNumber,email,workEmail,photos,address,workAddress);
         }
-        
         contacts = deserializeLinkedList("src/main/resources/contacts.ser");
         contacts.add(newContact);
         serializeLinkedList(contacts, "src/main/resources/contacts.ser");
@@ -114,8 +113,8 @@ public class SecondaryController {
     
     LinkedList<String> selectedPhotos = new LinkedList<>();
 
-@FXML
-private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
+    @FXML
+    private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
     FileChooser fileChooser = new FileChooser();
 
     // Establecer la carpeta inicial en la carpeta actual
@@ -183,6 +182,10 @@ private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
             deserializedList = (LinkedList<Contact>) ois.readObject();
             System.out.println("LinkedList deserializada correctamente.");
+            if (deserializedList == null){
+                deserializedList = new LinkedList<>();
+                return deserializedList;
+            }
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("vacio");
         }
@@ -191,11 +194,11 @@ private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
 
     @FXML
     private void prevPhotoViewer(ActionEvent event) {
-        
     }
 
     @FXML
     private void nextPhotoViewer(ActionEvent event) {
     }
+
     
 }

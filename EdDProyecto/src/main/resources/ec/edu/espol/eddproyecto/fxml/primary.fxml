@@ -47,7 +47,16 @@
                         </VBox>
                         <VBox alignment="CENTER_LEFT">
                            <children>
-                              <Button fx:id="deletedButton" mnemonicParsing="false" onAction="#deleteContact" text="Delete Contact" />
+                              <HBox>
+                                 <children>
+                                    <Button fx:id="deletedButton" mnemonicParsing="false" onAction="#deleteContact" text="Delete Contact">
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="editButton" mnemonicParsing="false" text="Edit Contact" />
+                                 </children>
+                              </HBox>
                               <HBox alignment="CENTER" prefHeight="324.0" prefWidth="302.0">
                                  <children>
                                     <ImageView fx:id="setPhoto" fitHeight="275.0" fitWidth="275.0" pickOnBounds="true" preserveRatio="true">

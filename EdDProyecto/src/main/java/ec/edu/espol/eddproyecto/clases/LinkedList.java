@@ -409,7 +409,13 @@ public class LinkedList<E> implements List<E>, Serializable{
         this.last.next = this.first;
         return tmp.content;
     }
-
+    
+    public boolean hasNext(Node<E> node){
+        if(node.next != this.first)
+            return true;
+        return false;
+    }
+    
     @Override
     public int indexOf(Object o) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

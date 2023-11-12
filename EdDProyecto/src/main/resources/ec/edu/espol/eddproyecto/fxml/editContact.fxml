@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="591.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ec.edu.espol.eddproyecto.fxml.SecondaryController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="563.0" prefWidth="913.0">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <HBox>
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="51.0" prefWidth="836.0">
+                           <children>
+                              <Label text="EDIT CONTACT" />
+                           </children>
+                        </VBox>
+                        <VBox>
+                           <children>
+                              <Button fx:id="cancelAddContact" mnemonicParsing="false" text="x" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="448.0" prefWidth="682.0">
+               <children>
+                  <ScrollPane hbarPolicy="NEVER">
+                     <content>
+                        <HBox>
+                           <children>
+                              <VBox alignment="CENTER">
+                                 <children>
+                                    <TextField fx:id="getNameFXML1" promptText="Name" />
+                                    <TextField fx:id="getContactNumberFXML1" promptText="Contact Number" />
+                                    <TextField fx:id="getworkNumberFXML1" promptText="Work Contact Number" />
+                                    <TextField fx:id="getEmailFXML1" prefHeight="26.0" prefWidth="514.0" promptText="E-mail" />
+                                    <TextField fx:id="getworkEmailFXML1" promptText="Work Email" />
+                                    <TextField fx:id="getAdressFXML11" promptText="Address" />
+                                    <TextField fx:id="getAdressFXML21" promptText="Secondary Address" />
+                                    <TextField fx:id="getAdressFXML31" promptText="Additional Address" />
+                                    <TextField fx:id="getworkAdressFXML11" promptText="Work Address" />
+                                    <TextField fx:id="getworkAdressFXML21" promptText="Secondary Work Address" />
+                                    <TextField fx:id="getworkAdressFXML31" promptText="Additional Work Address" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" prefHeight="447.0" prefWidth="332.0">
+                                 <children>
+                                    <StackPane prefHeight="448.0" prefWidth="62.0">
+                                       <children>
+                                          <ImageView fx:id="photoViewer" fitHeight="277.0" fitWidth="295.0" pickOnBounds="true" preserveRatio="true" />
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </HBox>
+            <Button fx:id="saveContact1" layoutX="424.0" layoutY="528.0" mnemonicParsing="false" onAction="#addNewContact" text="Save Contact" />
+         </children>
+      </VBox>
+   </children>
+</Pane>

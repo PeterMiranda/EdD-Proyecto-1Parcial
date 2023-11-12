@@ -57,6 +57,8 @@ public class PrimaryController {
     private HBox workAddressSection;
     @FXML
     private HBox workEmailSection;
+    @FXML
+    private Button editButton;
 
     private void addItemsToListView() {
     /*
@@ -108,11 +110,11 @@ public class PrimaryController {
     private void initialize() {
         try{
             contacts = deserializeLinkedList("src/main/resources/contacts.ser");
+            tableView.getItems().setAll(contacts);
         }
-        catch(Exception ioe){
-            System.out.println("NO DESERIALIZADA");
+        catch(NullPointerException npe){
+            System.out.println("LISTA VACIA, NADA AGREGADO");
         }
-        tableView.getItems().setAll(contacts);
     }
     
     private void initialize(Contact newContact) {
@@ -135,13 +137,7 @@ public class PrimaryController {
     private void selectEmpleado(MouseEvent event) throws FileNotFoundException {
         Contact contact = tableView.getSelectionModel().getSelectedItem();
         if (contact!=null){
-            setName.setText("");
-            setWorkNumber.setText("");
-            setWorkEmail.setText("");
-            setWorkAdress.setText("");
-            setNumber.setText("");
-            setEmail.setText("");
-            setAdress.setText("");
+            resetFields();
             if(contact instanceof Person){
                 workNumberSection.setVisible(true);
                 workEmailSection.setVisible(true);
@@ -166,6 +162,16 @@ public class PrimaryController {
             setEmail.setText(String.valueOf(contact.getEmail()));
             setAdress.setText(String.valueOf(contact.getAddress().toString()));
         }
+    }
+    
+    private void resetFields(){
+        setName.setText("");
+        setWorkNumber.setText("");
+        setWorkEmail.setText("");
+        setWorkAdress.setText("");
+        setNumber.setText("");
+        setEmail.setText("");
+        setAdress.setText("");
     }
     
     private static void serializeLinkedList(LinkedList<Contact> listContacts, String fileName) {
@@ -199,6 +205,7 @@ public class PrimaryController {
             for (Contact contact : contacts) {
                 if (contact.getContactNumber().equals(contactToDeleteNumber)) {
                     contacts.remove(i); // Elimina el contacto de la lista
+                    resetFields();
                     System.out.println("BORRADO CON EXITO");
                     break;
                 }
