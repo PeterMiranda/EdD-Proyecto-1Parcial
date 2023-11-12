@@ -259,7 +259,10 @@ public class LinkedList<E> implements List<E>, Serializable{
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        for (E element : c) {
+            add(element);
+        }
+        return true;
     }
 
     @Override

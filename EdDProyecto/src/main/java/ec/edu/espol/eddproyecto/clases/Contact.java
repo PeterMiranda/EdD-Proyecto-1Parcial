@@ -61,8 +61,10 @@ public class Contact implements Serializable{
         this.address = address;
     }
 
+    
 //    @Override
 //    public String toString() {
 //        return "{" + name + ", " + lastname + ", " + id + '}';
 //    }   
+
 }
