@@ -4,13 +4,11 @@
  */
 package ec.edu.espol.eddproyecto.clases;
 
-import java.util.Comparator;
-
 /**
  *
  * @author JorgeHN
  */
-public class comparatorName implements Comparator<Contact>{
+public class comparatorName implements ContactComparator{
     
     @Override
     public int compare(Contact o1, Contact o2) {
@@ -18,6 +16,11 @@ public class comparatorName implements Comparator<Contact>{
             return 0;
         }
         return -1;
+    }
+    
+    @Override
+    public int compareWithSearchString(Contact contact, String searchString) {
+        return contact.getName().toLowerCase().startsWith(searchString.toLowerCase()) ? 0 : -1;
     }
     
  }

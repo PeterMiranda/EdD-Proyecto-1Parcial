@@ -4,6 +4,8 @@ import ec.edu.espol.eddproyecto.clases.Person;
 import ec.edu.espol.eddproyecto.clases.LinkedList;
 import ec.edu.espol.eddproyecto.clases.ArrayList;
 import ec.edu.espol.eddproyecto.clases.Contact;
+import ec.edu.espol.eddproyecto.clases.ContactComparator;
+import ec.edu.espol.eddproyecto.clases.comparatorName;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -63,6 +65,8 @@ public class PrimaryController {
     private Button prevPhotoButton;
     @FXML
     private Button nextPhotoButton;
+    @FXML
+    private Button searhNameButton;
 
     private void addItemsToListView() {
     /*
@@ -274,4 +278,19 @@ public class PrimaryController {
         }
     }
     
+    @FXML
+    private void searhContacByName(ActionEvent event) {
+        contacts = deserializeLinkedList("src/main/resources/contacts.ser");
+    
+        String searchName = searhText.getText();
+    
+        if (contacts != null && searchName != null && !searchName.isEmpty()) {
+            ContactComparator comparator = new comparatorName();
+            LinkedList<Contact> foundContacts = contacts.findAll(comparator, searchName);
+            tableView.getItems().setAll(foundContacts);
+        }
+        else if (searchName.isEmpty()) {
+            tableView.getItems().setAll(contacts);
+        }
+    }
 }

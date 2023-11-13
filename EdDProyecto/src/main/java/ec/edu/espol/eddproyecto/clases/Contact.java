@@ -20,7 +20,7 @@ public class Contact implements Serializable{
         this.photos = photos;
         this.address = address;
     }
-
+    
     public String getName() {
         return name;
     }

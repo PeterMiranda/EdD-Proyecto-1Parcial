@@ -455,5 +455,15 @@ public class LinkedList<E> implements List<E>, Serializable{
         return listAll; 
     }
         
+    public LinkedList<E> findAll(ContactComparator comparator, String searchString) {
+        LinkedList<E> listAll = new LinkedList<>();
+        for (E current : this) {
+            if (comparator.compareWithSearchString((Contact) current, searchString) == 0) {
+                listAll.add(current);
+            }
+        }
+        return listAll;
+    }
+    
 }
 
