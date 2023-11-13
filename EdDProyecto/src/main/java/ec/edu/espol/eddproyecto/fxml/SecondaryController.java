@@ -60,8 +60,6 @@ public class SecondaryController {
     private CheckBox companyContact;
     @FXML
     private ImageView photoViewer;
-    
-    LinkedList<Contact> contacts = new LinkedList<>();
 
     @FXML
     private Button prevPhotoButton;
@@ -70,6 +68,7 @@ public class SecondaryController {
     @FXML
     private Button saveContact;
     
+    LinkedList<Contact> contacts = new LinkedList<>();
     
     @FXML
     private void addNewContact() throws IOException {
