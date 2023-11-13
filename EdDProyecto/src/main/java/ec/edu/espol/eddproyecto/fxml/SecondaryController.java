@@ -30,25 +30,46 @@ public class SecondaryController {
     
     @FXML
     private Button cancelAddContact;
+    @FXML
     private TextField getNameFXML;
+    @FXML
     private TextField getContactNumberFXML;
+    @FXML
     private TextField getLastnameFXML;
+    @FXML
     private TextField getEmailFXML;
+    @FXML
     private TextField getworkNumberFXML;
+    @FXML
     private TextField getworkEmailFXML;
+    @FXML
     private TextField getAdressFXML1;
+    @FXML
     private TextField getworkAdressFXML1;
+    @FXML
     private TextField getAdressFXML3;
+    @FXML
     private TextField getworkAdressFXML2;
+    @FXML
     private TextField getworkAdressFXML3;
+    @FXML
     private TextField getAdressFXML2;
+    @FXML
     private Button addPhoto;
+    @FXML
     private CheckBox companyContact;
     @FXML
     private ImageView photoViewer;
     
     LinkedList<Contact> contacts = new LinkedList<>();
 
+    @FXML
+    private Button prevPhotoButton;
+    @FXML
+    private Button nextPhotoButton;
+    @FXML
+    private Button saveContact;
+    
     
     @FXML
     private void addNewContact() throws IOException {
@@ -84,6 +105,7 @@ public class SecondaryController {
             newContact = new Person(name, lastname,contactNumber,workNumber,email,workEmail,photos,address,workAddress);
         }
         contacts = deserializeLinkedList("src/main/resources/contacts.ser");
+        System.out.println("what");
         contacts.add(newContact);
         serializeLinkedList(contacts, "src/main/resources/contacts.ser");
 
@@ -94,6 +116,7 @@ public class SecondaryController {
     }
     
     LinkedList<String> selectedPhotos = new LinkedList<>();
+    private int indiceActual = 0;
 
     @FXML
     private void addNewPhoto(ActionEvent event) throws FileNotFoundException {
@@ -158,7 +181,7 @@ public class SecondaryController {
     private void startPhotoViewer() throws FileNotFoundException{
         FileInputStream stream = new FileInputStream(selectedPhotos.get(0));
         Image image = new Image(stream);
-        
+
         photoViewer.setImage(image);
     }
     
@@ -207,5 +230,51 @@ public class SecondaryController {
     }
 
 
+    @FXML
+    private void prevPhotoViewer(ActionEvent event) throws FileNotFoundException {
+        int countPhotos = selectedPhotos.size();
+        
+        if(indiceActual+1 == 0){
+            indiceActual = countPhotos-1;
+            FileInputStream stream = new FileInputStream(selectedPhotos.get(indiceActual));
+            Image image = new Image(stream);
+
+            photoViewer.setImage(image);
+        }
+        else if(indiceActual+1 > 0){
+            indiceActual--;
+            FileInputStream stream = new FileInputStream(selectedPhotos.get(indiceActual));
+            Image image = new Image(stream);
+
+            photoViewer.setImage(image);
+        }
+        else{
+            
+        }
+
+        
+    }
+
+    @FXML
+    private void nextPhotoViewer(ActionEvent event) throws FileNotFoundException {
+        int countPhotos = selectedPhotos.size();
+        
+        if(indiceActual+1 < countPhotos){
+            indiceActual++;
+            FileInputStream stream = new FileInputStream(selectedPhotos.get(indiceActual));
+            Image image = new Image(stream);
+            photoViewer.setImage(image);
+        }
+        else if(indiceActual+1 >= countPhotos){
+            indiceActual = 0;
+            FileInputStream stream = new FileInputStream(selectedPhotos.get(indiceActual));
+            Image image = new Image(stream);
+
+            photoViewer.setImage(image);
+        }
+        else{
+            
+        }
+    }
     
 }

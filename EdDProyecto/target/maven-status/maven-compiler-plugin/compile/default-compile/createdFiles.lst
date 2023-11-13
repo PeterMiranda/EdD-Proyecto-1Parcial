@@ -1,6 +1,15 @@
 ec\edu\espol\eddproyecto\fxml\SecondaryController.class
+ec\edu\espol\eddproyecto\clases\ArrayList$1.class
+ec\edu\espol\eddproyecto\clases\ArrayList.class
 ec\edu\espol\eddproyecto\clases\LinkedList$1.class
 module-info.class
+ec\edu\espol\eddproyecto\clases\Person.class
 ec\edu\espol\eddproyecto\clases\LinkedList$Node.class
+ec\edu\espol\eddproyecto\clases\comparatorLastname.class
+ec\edu\espol\eddproyecto\clases\comparatorName.class
+ec\edu\espol\eddproyecto\clases\Contact.class
 ec\edu\espol\eddproyecto\fxml\App.class
+ec\edu\espol\eddproyecto\clases\LinkedList.class
+ec\edu\espol\eddproyecto\clases\Company.class
 ec\edu\espol\eddproyecto\fxml\PrimaryController.class
+ec\edu\espol\eddproyecto\clases\comparatorPerson.class

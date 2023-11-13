@@ -13,6 +13,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -21,6 +24,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 public class PrimaryController {
     
@@ -57,55 +61,7 @@ public class PrimaryController {
     private HBox workAddressSection;
     @FXML
     private HBox workEmailSection;
-    @FXML
-    private Button editButton;
 
-    private void addItemsToListView() {
-    /*
-    LinkedList<String> photos = new LinkedList<>();
-    photos.add("/ec/edu/espol/eddproyecto/fotos/SP.PNG");
-    photos.add("/ec/edu/espol/eddproyecto/fotos/Perfil.jpg");
-    photos.add("/ec/edu/espol/eddproyecto/fotos/ZzZ.jpg");
-        String contactNumber = "+593961443453";
-        String workNumber = "+593963931234";
-        String email = "jorgeherrerapro2019@gmail.com";
-        String workEmail = "joheniet@espol.edu.ec";        ArrayList<String> address = new ArrayList<>();
-        address.add("194 Timberline Dr");
-        address.add("Brentwood");
-        address.add("NY 11717");
-        ArrayList<String> workAddress = new ArrayList<>();
-        workAddress.add("1777 Fish Camp Rd");
-        workAddress.add("Mariposa");
-        workAddress.add("CA 93623");
-        Person persona1 = new Person("Peter","Miranda",contactNumber, workNumber, email, workEmail, photos, address, workAddress);
-        contacts.add(persona1);
-        
-        LinkedList<String> photos2 = new LinkedList<>();
-        photos2.add("/ec/edu/espol/eddproyecto/fotos/moto moto.PNG");
-        photos2.add("ec/edu/espol/eddproyecto/fotos/DKSAD.PNG");
-        photos2.add("ec/edu/espol/eddproyecto/fotos/DKHORNY.png");
-        String contactNumber2 = "+593961443453";
-        String workNumber2 = "+593963931234";
-        String email2 = "jorgeherrerapro2019@gmail.com";
-        String workEmail2 = "joheniet@espol.edu.ec";
-        ArrayList<String> address2 = new ArrayList<>();
-        address2.add("194 Timberline Dr");
-        address2.add("Brentwood");
-        address2.add("NY 11717");
-        ArrayList<String> workAddress2 = new ArrayList<>();
-        workAddress2.add("1777 Fish Camp Rd");
-        workAddress2.add("Mariposa");
-        workAddress2.add("CA 93623");
-        Person persona2 = new Person("Jorge","Herrera",contactNumber2, workNumber2, email2, workEmail2, photos2, address2, workAddress2);
-        
-        contacts.add(persona2);
-        contacts.add(persona1);
-        contacts.add(persona2);
-        tableView.getItems().addAll(contacts);
-    */
-        
-    }
-    
     @FXML
     private void initialize() {
         try{
@@ -148,7 +104,6 @@ public class PrimaryController {
                 workEmailSection.setVisible(false);
                 workAddressSection.setVisible(false);
             }
-            //ImagenView      
             FileInputStream stream = new FileInputStream(contact.getPhotos().get(0));
             Image image = new Image(stream);
         
@@ -199,7 +154,7 @@ public class PrimaryController {
             int i=0;
             for (Contact contact : contacts) {
                 if (contact.getContactNumber().equals(contactToDeleteNumber)) {
-                    contacts.remove(i); // Elimina el contacto de la lista
+                    contacts.remove(i);
                     resetFields();
                     System.out.println("BORRADO CON EXITO");
                     break;
@@ -210,19 +165,8 @@ public class PrimaryController {
         tableView.getItems().setAll(contacts);
        
         serializeLinkedList(contacts, "src/main/resources/contacts.ser");
-        //contacts = deserializeLinkedList("src/main/resources/contacts.ser");
-        //System.out.println("DESPUES DE Desesarilazar "+contacts.toString());
-        // Update the TableView
-        //tableView.getItems().setAll(contacts);
-        //tableView.refresh();  
     }
 
-    @FXML
-    private void setEditContact(ActionEvent event) throws IOException {
-        Contact contact = tableView.getSelectionModel().getSelectedItem();
-        EditContactController controller = new EditContactController();
-        controller.showEditContact(contact,contacts);
-    }
     
     
 

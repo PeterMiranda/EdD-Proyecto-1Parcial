@@ -9,31 +9,6 @@ import java.util.ListIterator;
 
 public class LinkedList<E> implements List<E>, Serializable{
 
-    public static void main(String[] args) {
-        /*
-        LinkedList<Person> miLinkedList1 = new LinkedList<>();
-        LinkedList<String> photos = new LinkedList<>();
-        photos.add("photo 1 ");
-        photos.add("photo 2 ");
-        photos.add("photo 3 ");
-        String contactNumber = "+593961443453";
-        String workNumber = "+593963931234";
-        String email = "jorgeherrerapro2019@gmail.com";
-        String workEmail = "joheniet@espol.edu.ec";
-        ArrayList<String> address = new ArrayList<>();
-        address.add("194 Timberline Dr");
-        address.add("Brentwood");
-        address.add("NY 11717");
-        ArrayList<String> workAddress = new ArrayList<>();
-        workAddress.add("1777 Fish Camp Rd");
-        workAddress.add("Mariposa");
-        workAddress.add("CA 93623");
-        Person persona1 = new Person("Peter","Miranda",contactNumber, workNumber, email, workEmail, photos, address, workAddress);
-        miLinkedList1.add(persona1);
-        System.out.println(miLinkedList1.toString());
-        */
-    }
-    
     Node<E> first;
     Node<E> last;
     private int size;
@@ -128,34 +103,15 @@ public class LinkedList<E> implements List<E>, Serializable{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    /*
-    @Override
-    public boolean add(E e) {
-        Node<E> newNode = new Node<>(e);
-        if (this.first == null){
-            this.first = newNode;
-            this.last = newNode;
-        } else{
-            this.last.next = newNode;
-            newNode.previus = this.last;
-            this.last = newNode;
-        }
-        this.last.next = this.first;
-        this.first.previus = this.last;
-        this.size++;
-        return true;
-    }
-    */
-    
     @Override
     public boolean add(E e) {
         Node<E> newNode = new Node<>(e);
         if (this.first == null) {
-            // La lista está vacía
             this.first = newNode;
             this.last = newNode;
-            newNode.next = newNode;  // Conexión circular para un único elemento
+            newNode.next = newNode;
             newNode.previus = newNode;
+            System.out.println(this.toString());
         } else {
             // La lista no está vacía
             this.last.next = newNode;
@@ -168,6 +124,7 @@ public class LinkedList<E> implements List<E>, Serializable{
         }
 
         this.size++;
+        System.out.println(this.size);
         return true;
     }
 
@@ -364,6 +321,12 @@ public class LinkedList<E> implements List<E>, Serializable{
         }
         Node<E> it = this.first;
         Node<E> tmp;
+        if(this.size == 1){
+            this.first = null;
+            this.last = null;
+            size--;
+            return it.content;
+        }
         if (index == 0){
             tmp = it;
             this.first = it.next;
@@ -454,6 +417,6 @@ public class LinkedList<E> implements List<E>, Serializable{
         }
         return listAll; 
     }
-    
+        
 }
 
